@@ -11,9 +11,9 @@ export function PageShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen">
       <SiteHeader />
       <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, ease: EASE }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
       >
         {children}
       </motion.main>
@@ -21,6 +21,8 @@ export function PageShell({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+
 
 /** Large editorial page opening used by every inner page. */
 export function PageHeading({

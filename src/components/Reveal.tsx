@@ -66,7 +66,7 @@ export function ImageReveal({
   );
 }
 
-/** Word-by-word text reveal for display headings. */
+/** Character-by-character mask reveal for display headings. */
 export function TextReveal({
   text,
   className,
@@ -77,25 +77,37 @@ export function TextReveal({
   delay?: number;
 }) {
   const words = text.split(" ");
+  let charIndex = 0;
   return (
     <span className={className}>
-      {words.map((word, i) => (
+      {words.map((word, w) => (
         <span
-          key={`${word}-${i}`}
+          key={`${word}-${w}`}
           className="inline-block overflow-hidden align-bottom"
         >
-          <motion.span
-            className="inline-block"
-            initial={{ y: "110%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.9, delay: delay + i * 0.06, ease: EASE }}
-          >
-            {word}
-            {i < words.length - 1 ? "\u00A0" : ""}
-          </motion.span>
+          {Array.from(word).map((char, c) => {
+            const i = charIndex++;
+            return (
+              <motion.span
+                key={`${char}-${c}`}
+                className="inline-block"
+                initial={{ y: "115%", rotate: 4, opacity: 0 }}
+                whileInView={{ y: 0, rotate: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.95,
+                  delay: delay + i * 0.022,
+                  ease: EASE,
+                }}
+              >
+                {char}
+              </motion.span>
+            );
+          })}
+          {w < words.length - 1 ? "\u00A0" : ""}
         </span>
       ))}
     </span>
   );
 }
+

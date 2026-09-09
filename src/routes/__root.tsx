@@ -11,6 +11,11 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { Cursor } from "@/components/Cursor";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { PageTransition } from "@/components/PageTransition";
+
 
 function NotFoundComponent() {
   return (
@@ -136,8 +141,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SmoothScroll />
+      <Cursor />
+      <ScrollProgress />
+      <PageTransition />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
 }
+
