@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import { ImageReveal, Reveal, TextReveal } from "@/components/Reveal";
+import { ImageReveal, Reveal } from "@/components/Reveal";
 import { artist, awards, facts, methodology, timeline } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
@@ -82,7 +82,7 @@ function AboutPage() {
               {artist.short}
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Based in {artist.location}, she holds an M.F.A. in Traditional Art
+              Based in {artist.location}, I hold an M.F.A. in Traditional Art
               and works across painting, sculpture, installation, photography,
               mixed media, public art, community art and art education, with a
               long-running enquiry into natural pigments, urban life,
