@@ -1,4 +1,5 @@
-import aboutPortrait from "@/assets/about-portrait.jpg";
+import aboutPortraitAsset from "@/assets/about-portrait.png.asset.json";
+const aboutPortrait = aboutPortraitAsset.url;
 import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
 import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
 import { createFileRoute, Link } from "@tanstack/react-router";
