@@ -9,6 +9,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const overHero = pathname === "/" && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,7 +36,7 @@ export function SiteHeader() {
           scrolled
             ? "bg-background/85 backdrop-blur-md border-b border-border py-3"
             : "py-6 md:py-8"
-        }`}
+        } ${overHero ? "text-background" : ""}`}
       >
         <div className="flex items-center justify-between gap-6">
           <Link
@@ -50,8 +51,10 @@ export function SiteHeader() {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`meta transition-colors hover:text-foreground ${
-                  pathname.startsWith(l.to) ? "text-foreground" : ""
+                className={`meta transition-colors ${
+                  overHero
+                    ? "text-background/70 hover:text-background"
+                    : `hover:text-foreground ${pathname.startsWith(l.to) ? "text-foreground" : ""}`
                 }`}
               >
                 {l.label}
@@ -62,7 +65,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="lg:hidden meta text-foreground"
+            className={`lg:hidden meta ${overHero ? "text-background" : "text-foreground"}`}
             aria-label="Open menu"
           >
             Menu
