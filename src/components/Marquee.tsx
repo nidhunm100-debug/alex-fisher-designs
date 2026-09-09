@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { useRef, type ReactNode } from "react";
+import { useReducedMotion } from "motion/react";
+import { type ReactNode } from "react";
 
 interface MarqueeProps {
   children: ReactNode;
@@ -14,39 +14,25 @@ export function Marquee({
   pauseOnHover = true,
   className,
 }: MarqueeProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <div
       className={`group overflow-hidden ${className ?? ""}`}
-      ref={trackRef}
+      style={
+        {
+          "--marquee-duration": `${speed}s`,
+        } as React.CSSProperties
+      }
     >
-      <motion.div
-        className="flex w-max will-change-transform"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          x: {
-            duration: speed,
-            repeat: Infinity,
-            ease: "linear",
-          },
-        }}
-        style={{
-          // Pause animation when user prefers reduced motion
-        }}
+      <div
+        className={`flex w-max ${shouldReduceMotion ? "" : "animate-marquee"} ${pauseOnHover ? "group-hover:[animation-play-state:paused]" : ""}`}
       >
-        <div
-          className={`flex shrink-0 ${pauseOnHover ? "group-hover:[animation-play-state:paused]" : ""}`}
-        >
+        <div className="flex shrink-0">{children}</div>
+        <div className="flex shrink-0" aria-hidden="true">
           {children}
         </div>
-        <div
-          className={`flex shrink-0 ${pauseOnHover ? "group-hover:[animation-play-state:paused]" : ""}`}
-          aria-hidden="true"
-        >
-          {children}
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
