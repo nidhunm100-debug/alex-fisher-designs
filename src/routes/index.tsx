@@ -1,3 +1,5 @@
+import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
+import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { HeroSlider } from "@/components/HeroSlider";
@@ -30,17 +32,7 @@ export const Route = createFileRoute("/")({
           "Where art meets people, memory, nature and the living culture of Odisha.",
       },
       { property: "og:type", content: "website" },
-      {
-        property: "og:image",
-        content:
-          "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
-      },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:image",
-        content:
-          "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
-      },
     ],
   }),
   component: Home,
@@ -108,7 +100,7 @@ function Home() {
         </div>
 
         <ParallaxImage
-          src="https://satyabhamamajhi.in/uploads/1786611076_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg"
+          src={artUnurbanisation}
           alt="Unurbanisation painting series detail"
           className="mt-14 h-[55vh] md:h-[80vh] w-full"
         />
@@ -154,7 +146,7 @@ function Home() {
           </Reveal>
           <div className="md:col-span-6 md:col-start-7">
             <ImageReveal
-              src="https://satyabhamamajhi.in/uploads/1786598725_cf3dd994-bcf2-47df-9718-7231a99a143d.png"
+              src={projPeoplesWall}
               alt="People's Wall participatory project with indigenous women artists"
               className="aspect-[4/3]"
             />
