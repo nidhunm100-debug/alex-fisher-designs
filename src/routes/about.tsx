@@ -83,10 +83,12 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Based in {artist.location}, I hold an M.F.A. in Traditional Art
-              and works across painting, sculpture, installation, photography,
-              mixed media, public art, community art and art education, with a
-              long-running enquiry into natural pigments, urban life,
-              ecological themes and indigenous knowledge.
+              and have been working since 2000 across painting, sculpture,
+              installation, photography, mixed media, public art, community art
+              and art education — with a long-running enquiry into natural
+              pigments, urban life, ecology and indigenous knowledge, including
+              more than a decade alongside the Dongaria Kondh community of the
+              Niyamgiri hills.
             </p>
           </Reveal>
         </div>
