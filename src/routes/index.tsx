@@ -105,25 +105,30 @@ function Home() {
 
 
       {/* 03 — FEATURED WORK MARQUEE */}
-      <section className="pb-24 md:pb-40 overflow-hidden">
+      <section className="relative overflow-hidden border-t border-archive-line bg-archive py-24 text-archive-foreground md:py-36">
+        <div className="pointer-events-none absolute inset-y-0 left-[7%] hidden w-px bg-archive-line/50 lg:block" aria-hidden="true" />
         <div className="edge">
           <Reveal>
-            <div className="flex items-end justify-between border-b border-border pb-5">
-              <h2 className="display-md">Selected Work</h2>
-              <Link to="/work" className="meta text-foreground link-rule">
+            <div className="flex items-end justify-between gap-8 border-b border-archive-line pb-6">
+              <div>
+                <p className="meta mb-4 text-archive-gold">From the studio archive</p>
+                <h2 className="display-md text-archive-foreground">Selected Work</h2>
+              </div>
+              <Link to="/work" className="meta shrink-0 text-archive-muted link-rule">
                 Explore Archive
               </Link>
             </div>
           </Reveal>
         </div>
 
-        <Marquee speed={40} className="mt-14" pauseOnHover>
+        <Marquee speed={40} className="mt-12 md:mt-16" pauseOnHover>
           {featured.map((art) => (
             <FeatureWork
               key={art.slug}
               art={art}
-              className="w-[78vw] md:w-[42vw] lg:w-[34vw] pr-6 md:pr-10 shrink-0"
+              className="w-[82vw] shrink-0 pr-5 md:w-[44vw] md:pr-8 lg:w-[35vw]"
               wide
+              archive
             />
           ))}
         </Marquee>
@@ -334,31 +339,39 @@ function FeatureWork({
   className,
   tall,
   wide,
+  archive,
 }: {
   art: (typeof artworks)[number];
   className?: string;
   tall?: boolean;
   wide?: boolean;
+  archive?: boolean;
 }) {
   return (
     <article className={className}>
-      <Link to="/work/$slug" params={{ slug: art.slug }} className="group block">
-        <ImageReveal
-          src={art.image}
-          alt={art.title}
-          className={
-            wide ? "aspect-[16/10]" : tall ? "aspect-[4/3]" : "aspect-[3/4]"
-          }
-          imgClassName="transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-        />
-        <div className="mt-5 flex items-start justify-between gap-6">
+      <Link
+        to="/work/$slug"
+        params={{ slug: art.slug }}
+        className={archive ? "group block border border-archive-line p-3 md:p-4" : "group block"}
+      >
+        <div className={archive ? "overflow-hidden bg-archive-surface" : undefined}>
+          <ImageReveal
+            src={art.image}
+            alt={art.title}
+            className={
+              wide ? "aspect-[16/10]" : tall ? "aspect-[4/3]" : "aspect-[3/4]"
+            }
+            imgClassName="transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+          />
+        </div>
+        <div className={archive ? "mt-4 flex min-h-20 items-start justify-between gap-6 border-t border-archive-line pt-4" : "mt-5 flex items-start justify-between gap-6"}>
           <div>
-            <h3 className="font-display text-2xl md:text-3xl">{art.title}</h3>
-            <p className="meta mt-2">
+            <h3 className={archive ? "font-display text-2xl text-archive-foreground md:text-3xl" : "font-display text-2xl md:text-3xl"}>{art.title}</h3>
+            <p className={archive ? "meta mt-2 text-archive-muted" : "meta mt-2"}>
               {art.year} — {art.medium}
             </p>
           </div>
-          <span className="meta opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <span className={archive ? "meta shrink-0 text-archive-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100" : "meta opacity-0 transition-opacity duration-500 group-hover:opacity-100"}>
             View Work →
           </span>
         </div>
