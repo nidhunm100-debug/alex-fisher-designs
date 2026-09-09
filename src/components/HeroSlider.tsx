@@ -33,11 +33,11 @@ export function HeroSlider() {
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-stone-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-stone-950/10" />
 
       <div className="relative flex min-h-[92vh] md:min-h-screen flex-col justify-end edge pb-14 md:pb-20">
         <motion.h1
-          className="display-xl text-archive-foreground"
+          className="display-xl text-archive hero-text-shadow"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: EASE }}
@@ -49,7 +49,7 @@ export function HeroSlider() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-end">
           <motion.p
-            className="meta text-archive-gold"
+            className="meta !text-archive/90 hero-text-shadow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -66,10 +66,10 @@ export function HeroSlider() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.7, ease: EASE }}
               >
-                <p className="font-display text-2xl text-archive-foreground">
+                <p className="font-display text-2xl text-archive hero-text-shadow">
                   {slide.title}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-archive-muted">
+                <p className="mt-2 text-sm leading-relaxed text-archive/80 hero-text-shadow">
                   {slide.caption}
                 </p>
               </motion.div>
@@ -82,10 +82,10 @@ export function HeroSlider() {
                   type="button"
                   onClick={() => setIndex(i)}
                   aria-label={`Show slide ${i + 1}: ${s.title}`}
-                  className="relative h-px w-12 overflow-hidden bg-archive-muted/40"
+                  className="relative h-px w-12 overflow-hidden bg-archive/30"
                 >
                   <span
-                    className={`absolute inset-0 origin-left bg-archive-gold transition-transform duration-500 ${
+                    className={`absolute inset-0 origin-left bg-archive transition-transform duration-500 ${
                       i === index ? "scale-x-100" : "scale-x-0"
                     }`}
                   />

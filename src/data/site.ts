@@ -807,6 +807,7 @@ export const press = [
 ];
 
 export const navLinks = [
+  { label: "Home", to: "/" },
   { label: "Work", to: "/work" },
   { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
