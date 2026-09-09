@@ -33,6 +33,7 @@ export function HeroSlider() {
         />
       </AnimatePresence>
 
+      <div className="absolute inset-0 bg-stone-950/20" />
       <div
         className="absolute inset-x-0 top-0 h-40"
         style={{
