@@ -28,7 +28,8 @@ export function PageTransition() {
           key={key}
           aria-hidden
           className="pointer-events-none fixed inset-0 z-[80] flex"
-263        >
+        >
+
           {[0, 1, 2, 3, 4].map((i) => (
             <motion.span
               key={i}
