@@ -1,3 +1,21 @@
+import portraitImg from "@/assets/portrait.jpg";
+import heroGarden from "@/assets/hero-garden.jpg";
+import heroYoungEyes from "@/assets/hero-young-eyes.jpg";
+import heroHills from "@/assets/hero-hills.jpg";
+import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
+import artEcology from "@/assets/art-ecology.jpg";
+import artLetters from "@/assets/art-letters.jpg";
+import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
+import projForestPark from "@/assets/proj-forest-park.jpg";
+import projFlyoverMural from "@/assets/proj-flyover-mural.jpg";
+import projPortraits from "@/assets/proj-portraits.jpg";
+import projArtTrail from "@/assets/proj-art-trail.jpg";
+import projKalpanadham from "@/assets/proj-kalpanadham.jpg";
+import exhWomenCamp from "@/assets/exh-women-camp.jpg";
+import exhUnsung from "@/assets/exh-unsung.jpg";
+import notePigments from "@/assets/note-pigments.jpg";
+import fieldDocumentation from "@/assets/field-documentation.jpg";
+
 /**
  * Content source of truth, mirrored from satyabhamamajhi.in.
  * Facts, titles, dates and imagery are preserved from the existing site.
@@ -17,7 +35,7 @@ export const artist = {
     "To use art as a medium for awareness, education, and empowerment — promoting sustainability through art, inspiring creativity that respects nature and humanity, and creating meaningful impact through research, collaboration, and community participation.",
   vision:
     "To build a compassionate and sustainable world where art, nature, and community thrive together — a future guided by creativity and strong values, where communities are empowered through art and knowledge while nature is respected and protected for generations to come.",
-  portrait: "https://satyabhamamajhi.in/uploads/about_1786599818.png",
+  portrait: portraitImg,
 };
 
 export type Slide = {
@@ -31,22 +49,19 @@ export const heroSlides: Slide[] = [
     title: "A Garden of Everyday Life",
     caption:
       "A vibrant visual portrait of a public garden where people gather, relax, play, connect, and experience nature together.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
+    image: heroGarden,
   },
   {
     title: "The World Through Young Eyes",
     caption:
       "A vibrant exploration of childhood, play, community, and the imaginative worlds children create around themselves.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786598921_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: heroYoungEyes,
   },
   {
     title: "Whispers of the Hills",
     caption:
       "Where rolling green hills, distant trees, and an expansive blue sky come together in a serene visual harmony.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786598725_cf3dd994-bcf2-47df-9718-7231a99a143d.png",
+    image: heroHills,
   },
 ];
 
@@ -70,8 +85,7 @@ export const artworks: Artwork[] = [
     category: "Art & Paintings",
     description:
       "A painted enquiry into the tension between concrete expansion and the living landscape, built from earth pigments gathered in rural Odisha.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611076_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg",
+    image: artUnurbanisation,
     featured: true,
   },
   {
@@ -82,8 +96,7 @@ export const artworks: Artwork[] = [
     category: "Culture & Heritage",
     description:
       "Domestic and shared spaces read as ecologies — surfaces, textures and traces of the people who inhabit them.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611563_3f2f47f8-017d-4567-9251-a96d1854724a.jpg",
+    image: artEcology,
     featured: true,
   },
   {
@@ -94,8 +107,7 @@ export const artworks: Artwork[] = [
     category: "Nature & Landscapes",
     description:
       "Script, symbol and landscape held together on one surface, celebrating the written word as a living cultural form.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786612345_cfee69ce-0658-4e28-851d-06463adc972b.jpg",
+    image: artLetters,
     featured: true,
   },
 ];
@@ -128,8 +140,7 @@ export const projects: Project[] = [
     category: "Community",
     description:
       "A public participatory project with 100 indigenous women artists and artisans.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786598725_cf3dd994-bcf2-47df-9718-7231a99a143d.png",
+    image: projPeoplesWall,
   },
   {
     slug: "forest-park",
@@ -139,8 +150,7 @@ export const projects: Project[] = [
     category: "Ecological Art",
     description:
       "Nature-themed boundary walls capturing flowers, trees, and morning yoga activities.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611563_3f2f47f8-017d-4567-9251-a96d1854724a.jpg",
+    image: projForestPark,
   },
   {
     slug: "rajmahal-flyover",
@@ -150,8 +160,7 @@ export const projects: Project[] = [
     category: "Mural",
     description:
       "Connecting local haat vendors and daily life via street art paintings.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611076_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg",
+    image: projFlyoverMural,
   },
   {
     slug: "rasulgarh-captain-portraits",
@@ -161,8 +170,7 @@ export const projects: Project[] = [
     category: "Public Art",
     description:
       "Portraits of 16 hockey team captains painted on flyover pillars.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614307_bffdb7f3-c880-45a4-bdc7-d35ea17bec98.jpg",
+    image: projPortraits,
   },
   {
     slug: "bhubaneswar-art-trail",
@@ -172,8 +180,7 @@ export const projects: Project[] = [
     category: "Public Installation",
     description:
       "Architectural sculpture using metal and fabric inspired by ancient temple forms.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
+    image: projArtTrail,
   },
   {
     slug: "i-have-a-dream-kalpanadham",
@@ -183,8 +190,7 @@ export const projects: Project[] = [
     category: "Children Workshop",
     description:
       "Six-month workshop educating tribal children on organic farming and art.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614386_f35da851-06f8-4bc6-a171-acc84d80133e.jpg",
+    image: projKalpanadham,
   },
 ];
 
@@ -209,8 +215,7 @@ export const exhibitions: Exhibition[] = [
     status: "Current",
     description:
       "A solo exhibition exhibiting the latest canvas works, mixed-media, and clay murals by Satyabhama Majhi.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614687_3f2f47f8-017d-4567-9251-a96d1854724a.jpg",
+    image: artEcology,
   },
   {
     slug: "national-woman-artist-camp",
@@ -221,8 +226,7 @@ export const exhibitions: Exhibition[] = [
     status: "Archive",
     description:
       "A creative platform celebrating women artists, their artistic voices, diverse perspectives, and contributions to the world of contemporary art.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786615347_54fbaeae-b336-4c6f-bd7e-8eba9c4f06da.jpg",
+    image: exhWomenCamp,
   },
   {
     slug: "unsung-heroes-of-odisha",
@@ -233,8 +237,7 @@ export const exhibitions: Exhibition[] = [
     status: "Archive",
     description:
       "An online painting initiative celebrating the courage, contributions, and inspiring stories of remarkable individuals from Odisha whose work and sacrifices deserve greater recognition.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786615551_ce3779c4-d878-4e10-8eec-e33b1d396556.jpg",
+    image: exhUnsung,
   },
   {
     slug: "5th-international-online-solo",
@@ -245,8 +248,7 @@ export const exhibitions: Exhibition[] = [
     status: "Archive",
     description:
       "A global platform showcasing an artist's creative journey, artistic vision, and unique body of work to audiences across the world.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786615690_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: heroYoungEyes,
   },
   {
     slug: "saragiphula-childrens-art-festival",
@@ -257,8 +259,7 @@ export const exhibitions: Exhibition[] = [
     status: "Archive",
     description:
       "A vibrant celebration of childhood creativity, imagination, and artistic expression, bringing young minds together through art and cultural activities.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
+    image: projKalpanadham,
   },
 ];
 
@@ -279,8 +280,7 @@ export const notes: Article[] = [
     category: "Research",
     excerpt:
       "Field notes on the organic pigment harvesting techniques used by forest-dwelling communities.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614199_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: fieldDocumentation,
   },
   {
     slug: "what-does-unurbanisation-mean",
@@ -289,8 +289,7 @@ export const notes: Article[] = [
     category: "Unurbanisation",
     excerpt:
       "A philosophical inquiry into modern concrete expansion versus natural eco-preservation.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611076_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg",
+    image: artUnurbanisation,
   },
 ];
 
@@ -302,8 +301,7 @@ export const blogs: Article[] = [
     category: "Eco-Art",
     excerpt:
       "Discover how landscapes, plants, textures, and changing environments inspire artistic expression and encourage us to see nature through a new creative perspective.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786613547_cf3dd994-bcf2-47df-9718-7231a99a143d.png",
+    image: heroHills,
   },
   {
     slug: "art-as-a-catalyst-for-unurbanisation",
@@ -312,8 +310,7 @@ export const blogs: Article[] = [
     category: "Philosophy",
     excerpt:
       "Reflecting on how community art projects can challenge the standard definition of urban progress and save rural ecosystems.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786613392_68a6fde2-3298-4285-9a02-b9f1856e319d.jpg",
+    image: projPeoplesWall,
   },
   {
     slug: "the-alchemy-of-natural-pigments",
@@ -322,8 +319,7 @@ export const blogs: Article[] = [
     category: "Eco-Art",
     excerpt:
       "Journey deep into the forests of Odisha to discover how local communities extract vibrant, sustainable pigments from seeds, stones, and leaves.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786613420_54fbaeae-b336-4c6f-bd7e-8eba9c4f06da.jpg",
+    image: notePigments,
   },
 ];
 
@@ -340,46 +336,40 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Art becomes more powerful when it brings people together — collaboration, community participation, and shared experiences shaping meaningful creative work.",
     category: "Sustainable Living",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614386_f35da851-06f8-4bc6-a171-acc84d80133e.jpg",
+    image: projKalpanadham,
   },
   {
     title: "Where Culture Meets Creativity",
     caption:
       "The relationship between traditional culture and contemporary artistic practices — patterns, symbols, stories and heritage finding new forms.",
     category: "Art & Paintings",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614307_bffdb7f3-c880-45a4-bdc7-d35ea17bec98.jpg",
+    image: projArtTrail,
   },
   {
     title: "Stories Hidden Within Everyday Life",
     caption:
       "Ordinary people, shared spaces, memories and experiences becoming meaningful sources of artistic inspiration.",
     category: "Art & Paintings",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614199_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: heroGarden,
   },
   {
     title: "Art Painting",
     caption:
       "Traditional art, stories, symbols and cultural practices that preserve heritage while inspiring new generations.",
     category: "Culture & Heritage",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614004_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg",
+    image: artLetters,
   },
   {
     title: "Field Documentation",
     caption: "Documentation from studio and field practice.",
     category: "People & Community",
-    image:
-      "https://satyabhamamajhi.in/uploads/1787072211_e2c34a0375ece6ee88aa69ef228f353c.jpg",
+    image: fieldDocumentation,
   },
   {
     title: "Unurbanisation Study",
     caption: "A study surface from the Unurbanisation painting series.",
     category: "Nature & Landscapes",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786615690_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: heroHills,
   },
 ];
 
@@ -397,64 +387,55 @@ export const practices = [
     n: "01",
     title: "Painting",
     text: "Continuous canvas practice with natural earth pigments and unurbanisation reflections.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611076_a3d4ae79-84a9-452a-8fa5-7b9eda5cae0f.jpg",
+    image: artUnurbanisation,
   },
   {
     n: "02",
     title: "Installation",
     text: "Site-responsive installations built with metal, fabric, clay and gathered material.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786599421_ChatGPTImageAug13202610_36_36AM.png",
+    image: projArtTrail,
   },
   {
     n: "03",
     title: "Sculpture",
     text: "Architectural forms drawn from ancient temple structures of Odisha.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614307_bffdb7f3-c880-45a4-bdc7-d35ea17bec98.jpg",
+    image: projPortraits,
   },
   {
     n: "04",
     title: "Photography",
     text: "Documentary observation of landscape shifts, communities and everyday life.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614199_88b52f1b-5865-42eb-871f-8c8979ea9a9a.jpg",
+    image: fieldDocumentation,
   },
   {
     n: "05",
     title: "Mixed Media",
     text: "Layered surfaces combining clay, charcoal, acrylic and organic binders.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786611563_3f2f47f8-017d-4567-9251-a96d1854724a.jpg",
+    image: artEcology,
   },
   {
     n: "06",
     title: "Public Art",
     text: "Urban wall murals, civic monuments and heritage installations.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786613392_68a6fde2-3298-4285-9a02-b9f1856e319d.jpg",
+    image: projFlyoverMural,
   },
   {
     n: "07",
     title: "Community Art",
     text: "Co-creation with indigenous artisans, women collectives and villages.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786598725_cf3dd994-bcf2-47df-9718-7231a99a143d.png",
+    image: projPeoplesWall,
   },
   {
     n: "08",
     title: "Art Education",
     text: "Kalpanadham workshops with school children and creative learning programmes.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786614386_f35da851-06f8-4bc6-a171-acc84d80133e.jpg",
+    image: projKalpanadham,
   },
   {
     n: "09",
     title: "Ecological Art",
     text: "Natural pigment research and ecological programmes across rural Odisha.",
-    image:
-      "https://satyabhamamajhi.in/uploads/1786613420_54fbaeae-b336-4c6f-bd7e-8eba9c4f06da.jpg",
+    image: notePigments,
   },
 ];
 
