@@ -60,8 +60,8 @@ export function SiteHeader() {
               <Magnetic key={l.to} strength={0.35}>
                 <Link
                   to={l.to}
-                  className={`meta link-rise transition-colors hover:text-foreground ${
-                    pathname.startsWith(l.to) ? "text-foreground" : ""
+                  className={`meta link-rise transition-opacity hover:opacity-100 ${
+                    pathname.startsWith(l.to) ? "opacity-100" : "opacity-70"
                   }`}
                 >
                   {l.label}
@@ -74,7 +74,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="meta text-foreground"
+              className="meta"
               aria-label="Open menu"
             >
               Menu
