@@ -30,7 +30,7 @@ export const artist = {
   statement:
     "Art can preserve memory, strengthen communities and create deeper relationships between people and the world they inhabit.",
   short:
-    "Satyabhama is an artist from Bhubaneswar (Odisha) practicing in varied expressions such as painting, installation art, sculpting and photography. Her strength is painting and she does a lot of concepts on growing urbanization. Apart from that, she also undertakes many socially relevant and much needed projects where she takes art as a medium to engage with the community.",
+    "I am Satyabhama — an artist from Bhubaneswar, Odisha. My practice moves across painting, installation, sculpture and photography, but painting is where I feel most at home. Much of my work grows out of watching cities expand and landscapes change. Alongside my studio practice, I take on socially rooted projects that bring art into communities — using creativity as a way to listen, share and build something meaningful together.",
   mission:
     "To use art as a medium for awareness, education, and empowerment — promoting sustainability through art, inspiring creativity that respects nature and humanity, and creating meaningful impact through research, collaboration, and community participation.",
   vision:
