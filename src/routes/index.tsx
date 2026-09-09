@@ -49,62 +49,56 @@ function Home() {
       <HeroSlider />
 
       {/* 02 — ARTIST STATEMENT */}
-      <section className="relative py-28 md:py-40 bg-paper overflow-hidden">
-        <div className="edge grid gap-16 md:gap-12 md:grid-cols-12 items-center">
-          <div className="md:col-span-6 relative">
-            <Reveal y={40}>
-              <h2 className="display-xl uppercase tracking-tight text-clay">
-                Hello!
+      <section className="relative overflow-hidden bg-archive py-24 text-archive-foreground md:py-36 lg:min-h-[880px] lg:flex lg:items-center">
+        <div className="pointer-events-none absolute inset-y-0 left-[7%] hidden w-px bg-archive-line/50 lg:block" aria-hidden="true" />
+        <div className="edge mx-auto grid w-full max-w-[1500px] items-center gap-16 lg:grid-cols-12 lg:gap-20">
+          <div className="relative order-2 lg:order-1 lg:col-span-7 lg:pl-10">
+            <Reveal>
+              <p className="meta mb-8 text-archive-gold">The living archive · Bhubaneswar</p>
+              <h2 className="font-display text-[clamp(4.75rem,10vw,9rem)] leading-[0.78] text-archive-foreground">
+                Hello,
+                <span className="mt-3 block italic text-archive-muted">I’m Satyabhama.</span>
               </h2>
             </Reveal>
+
             <Reveal delay={0.15}>
-              <p className="mt-10 font-display uppercase text-xl md:text-2xl lg:text-3xl leading-[1.45] tracking-wide text-foreground/85 max-w-xl">
-                {artist.short}
-              </p>
-              <Link
-                to="/about"
-                className="mt-12 inline-flex items-center gap-3 border-2 border-foreground/30 px-10 py-4 meta text-foreground transition-all duration-300 hover:bg-foreground hover:text-background hover:border-foreground"
-              >
-                More details
-                <span aria-hidden="true" className="text-lg">→</span>
-              </Link>
+              <div className="mt-12 max-w-2xl border-l border-archive-line pl-7 md:pl-10">
+                <p className="text-base font-light leading-8 text-archive-muted md:text-lg">
+                  {artist.short}
+                </p>
+                <Link
+                  to="/about"
+                  className="group mt-10 inline-flex items-center gap-5 text-xs font-semibold uppercase tracking-[0.22em] text-archive-foreground"
+                >
+                  <span className="h-px w-12 bg-archive-gold transition-[width] duration-500 group-hover:w-20" aria-hidden="true" />
+                  More details
+                </Link>
+              </div>
             </Reveal>
           </div>
 
-          <div className="md:col-span-5 md:col-start-8 relative">
+          <div className="relative order-1 mx-auto w-full max-w-md lg:order-2 lg:col-span-5 lg:max-w-none">
             <Reveal delay={0.2}>
-              <div className="relative aspect-[4/5] w-full">
-                <div
-                  className="absolute inset-0 rounded-t-[999px] border-2 border-clay/25 translate-x-5 translate-y-5"
-                  aria-hidden="true"
-                />
-                <div
-                  className="relative h-full w-full overflow-hidden rounded-t-[999px] border-2 border-clay/40"
-                  style={{ background: "var(--forest)" }}
-                >
+              <div className="relative border border-archive-line p-3 md:p-4">
+                <div className="aspect-[3/4] overflow-hidden bg-archive-surface">
                   <img
                     src={aboutPortrait}
-                    alt="Satyabhama Majhi painting outdoors"
+                    alt="Portrait of artist Satyabhama Majhi"
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="h-full w-full object-cover mix-blend-multiply"
+                    className="h-full w-full object-cover grayscale-[35%] contrast-[1.04] transition duration-[1400ms] ease-out hover:scale-[1.025] hover:grayscale-0"
                   />
                 </div>
-              </div>
-              <div className="pointer-events-none absolute -top-4 -right-2 md:-right-8 h-36 w-36 md:h-44 md:w-44 animate-[spin_22s_linear_infinite]">
-                <svg viewBox="0 0 200 200" className="h-full w-full fill-foreground/80">
-                  <defs>
-                    <path id="aboutCircle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" />
-                  </defs>
-                  <text fontSize="16" letterSpacing="3.5" className="font-display uppercase">
-                    <textPath href="#aboutCircle">
-                      Painter · Installation · Community art · Odisha ·
-                    </textPath>
-                  </text>
-                </svg>
+                <div className="mt-4 flex items-center justify-between gap-4 border-t border-archive-line pt-4">
+                  <span className="meta text-archive-muted">Artist · Curator · Activist</span>
+                  <span className="meta text-archive-gold">2000—Present</span>
+                </div>
               </div>
             </Reveal>
+            <span className="pointer-events-none absolute -bottom-6 -left-5 hidden origin-bottom-left -rotate-90 select-none whitespace-nowrap font-display text-7xl uppercase text-archive-line/40 lg:block" aria-hidden="true">
+              Odisha / India
+            </span>
           </div>
         </div>
       </section>
