@@ -18,6 +18,12 @@
   --color-terracotta: var(--terracotta);
   --color-ochre: var(--ochre);
   --color-forest: var(--forest);
+  --color-archive: var(--archive);
+  --color-archive-surface: var(--archive-surface);
+  --color-archive-foreground: var(--archive-foreground);
+  --color-archive-muted: var(--archive-muted);
+  --color-archive-line: var(--archive-line);
+  --color-archive-gold: var(--archive-gold);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -54,6 +60,12 @@
   --terracotta: oklch(0.575 0.128 45);
   --ochre: oklch(0.715 0.115 75);
   --forest: oklch(0.395 0.055 145);
+  --archive: oklch(0.12 0 0);
+  --archive-surface: oklch(0.16 0 0);
+  --archive-foreground: oklch(0.97 0.006 85);
+  --archive-muted: oklch(0.64 0.008 70);
+  --archive-line: oklch(0.29 0.008 70);
+  --archive-gold: oklch(0.73 0.11 82);
 
   --card: oklch(0.949 0.014 82);
   --card-foreground: oklch(0.205 0.012 60);
