@@ -76,7 +76,7 @@ function AboutPage() {
         <div className="md:col-span-6 md:col-start-7 self-center">
           <Reveal>
             <p className="font-display text-2xl md:text-3xl leading-snug">
-              <TextReveal text={artist.statement} />
+              {artist.statement}
             </p>
             <p className="mt-8 text-base leading-relaxed text-muted-foreground">
               {artist.short}
