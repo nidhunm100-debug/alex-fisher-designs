@@ -4,6 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { HeroSlider } from "@/components/HeroSlider";
 import { ImageReveal, Reveal, TextReveal } from "@/components/Reveal";
+import { Marquee } from "@/components/Marquee";
 import { ParallaxImage } from "@/components/Parallax";
 import { PracticeList } from "@/components/PracticeList";
 import {
@@ -66,28 +67,29 @@ function Home() {
         </div>
       </section>
 
-      {/* 03 — FEATURED WORK */}
-      <section className="edge pb-24 md:pb-40">
-        <Reveal>
-          <div className="flex items-end justify-between border-b border-border pb-5">
-            <h2 className="display-md">Selected Work</h2>
-            <Link to="/work" className="meta text-foreground link-rule">
-              Explore Archive
-            </Link>
-          </div>
-        </Reveal>
-
-        <div className="mt-14 grid gap-x-10 gap-y-20 md:grid-cols-12">
-          <FeatureWork art={featured[0]!} className="md:col-span-8" tall />
-          <FeatureWork
-            art={featured[1]!}
-            className="md:col-span-4 md:self-end"
-          />
-          <FeatureWork
-            art={featured[2]!}
-            className="md:col-span-9 md:col-start-4"
-          />
+      {/* 03 — FEATURED WORK MARQUEE */}
+      <section className="pb-24 md:pb-40 overflow-hidden">
+        <div className="edge">
+          <Reveal>
+            <div className="flex items-end justify-between border-b border-border pb-5">
+              <h2 className="display-md">Selected Work</h2>
+              <Link to="/work" className="meta text-foreground link-rule">
+                Explore Archive
+              </Link>
+            </div>
+          </Reveal>
         </div>
+
+        <Marquee speed={40} className="mt-14" pauseOnHover>
+          {featured.map((art) => (
+            <FeatureWork
+              key={art.slug}
+              art={art}
+              className="w-[78vw] md:w-[42vw] lg:w-[34vw] pr-6 md:pr-10 shrink-0"
+              wide
+            />
+          ))}
+        </Marquee>
       </section>
 
       {/* 04 — UNURBANISATION */}
@@ -294,10 +296,12 @@ function FeatureWork({
   art,
   className,
   tall,
+  wide,
 }: {
   art: (typeof artworks)[number];
   className?: string;
   tall?: boolean;
+  wide?: boolean;
 }) {
   return (
     <article className={className}>
@@ -305,7 +309,9 @@ function FeatureWork({
         <ImageReveal
           src={art.image}
           alt={art.title}
-          className={tall ? "aspect-[4/3]" : "aspect-[3/4]"}
+          className={
+            wide ? "aspect-[16/10]" : tall ? "aspect-[4/3]" : "aspect-[3/4]"
+          }
           imgClassName="transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
         />
         <div className="mt-5 flex items-start justify-between gap-6">
