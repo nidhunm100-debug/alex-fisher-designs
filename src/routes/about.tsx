@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import { ImageReveal, Reveal, TextReveal } from "@/components/Reveal";
-import { artist, methodology, timeline } from "@/data/site";
+import { ImageReveal, Reveal } from "@/components/Reveal";
+import { artist, awards, facts, methodology, timeline } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -76,17 +76,19 @@ function AboutPage() {
         <div className="md:col-span-6 md:col-start-7 self-center">
           <Reveal>
             <p className="font-display text-2xl md:text-3xl leading-snug">
-              <TextReveal text={artist.statement} />
+              {artist.statement}
             </p>
             <p className="mt-8 text-base leading-relaxed text-muted-foreground">
               {artist.short}
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Based in {artist.location}, she holds an M.F.A. in Traditional Art
-              and works across painting, sculpture, installation, photography,
-              mixed media, public art, community art and art education, with a
-              long-running enquiry into natural pigments, urban life,
-              ecological themes and indigenous knowledge.
+              Based in {artist.location}, I hold an M.F.A. in Traditional Art
+              and have been working since 2000 across painting, sculpture,
+              installation, photography, mixed media, public art, community art
+              and art education — with a long-running enquiry into natural
+              pigments, urban life, ecology and indigenous knowledge, including
+              more than a decade alongside the Dongaria Kondh community of the
+              Niyamgiri hills.
             </p>
           </Reveal>
         </div>
@@ -109,8 +111,24 @@ function AboutPage() {
 
       <section className="edge py-16 border-t border-border">
         <Reveal>
+          <p className="meta">At a glance</p>
+        </Reveal>
+        <dl className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {facts.map((f, i) => (
+            <Reveal key={f.label} delay={i * 0.06}>
+              <dt className="meta">{f.label}</dt>
+              <dd className="mt-2 font-display text-xl leading-snug">
+                {f.value}
+              </dd>
+            </Reveal>
+          ))}
+        </dl>
+      </section>
+
+      <section className="edge py-16 border-t border-border">
+        <Reveal>
           <p className="meta">Professional journey</p>
-          <h2 className="display-lg mt-4 mb-12">2006 — Present</h2>
+          <h2 className="display-lg mt-4 mb-12">2000 — Present</h2>
         </Reveal>
         <ol>
           {timeline.map((t, i) => (
@@ -135,19 +153,17 @@ function AboutPage() {
         <Reveal>
           <p className="meta">Awards & recognition</p>
         </Reveal>
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
-          <Reveal>
-            <p className="display-md">Odisha Lalit Kala Akademi State Award</p>
-            <p className="meta mt-2">2012</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="display-md">
-              National Lalit Kala Akademi Scholarship, New Delhi
-            </p>
-            <p className="meta mt-2">2009 – 2010</p>
-          </Reveal>
+        <div className="mt-8 grid gap-10 md:grid-cols-2">
+          {awards.map((a, i) => (
+            <Reveal key={a.title} delay={i * 0.1}>
+              <p className="display-md">{a.title}</p>
+              <p className="meta mt-2">{a.year}</p>
+              <p className="mt-3 text-base text-muted-foreground">{a.detail}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
+
 
       <section className="edge py-24 md:py-32">
         <Reveal>

@@ -1,7 +1,6 @@
 import aboutPortraitAsset from "@/assets/about-portrait.png.asset.json";
 const aboutPortrait = aboutPortraitAsset.url;
-import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
-import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
+import { photo } from "@/data/photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { HeroSlider } from "@/components/HeroSlider";
@@ -146,7 +145,7 @@ function Home() {
         </div>
 
         <ParallaxImage
-          src={artUnurbanisation}
+          src={photo.vision2040}
           alt="Unurbanisation painting series detail"
           className="mt-14 h-[55vh] md:h-[80vh] w-full"
         />
@@ -192,7 +191,7 @@ function Home() {
           </Reveal>
           <div className="md:col-span-6 md:col-start-7">
             <ImageReveal
-              src={projPeoplesWall}
+              src={photo.tondoThreeWomen}
               alt="People's Wall participatory project with indigenous women artists"
               className="aspect-[4/3]"
             />
