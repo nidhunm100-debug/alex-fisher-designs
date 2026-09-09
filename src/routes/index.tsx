@@ -145,7 +145,7 @@ function Home() {
         </div>
 
         <ParallaxImage
-          src={artUnurbanisation}
+          src={photo.vision2040}
           alt="Unurbanisation painting series detail"
           className="mt-14 h-[55vh] md:h-[80vh] w-full"
         />
@@ -191,7 +191,7 @@ function Home() {
           </Reveal>
           <div className="md:col-span-6 md:col-start-7">
             <ImageReveal
-              src={projPeoplesWall}
+              src={photo.tondoThreeWomen}
               alt="People's Wall participatory project with indigenous women artists"
               className="aspect-[4/3]"
             />
