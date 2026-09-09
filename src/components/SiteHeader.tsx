@@ -11,7 +11,7 @@ export function SiteHeader() {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const overHero = pathname === "/" && !scrolled;
+  const { scrollY } = useScroll();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (y) => {
