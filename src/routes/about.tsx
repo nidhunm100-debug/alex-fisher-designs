@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { ImageReveal, Reveal, TextReveal } from "@/components/Reveal";
-import { artist, methodology, timeline } from "@/data/site";
+import { artist, awards, facts, methodology, timeline } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
