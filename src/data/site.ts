@@ -1,24 +1,9 @@
-import portraitImg from "@/assets/portrait.jpg";
-import heroGarden from "@/assets/hero-garden.jpg";
-import heroYoungEyes from "@/assets/hero-young-eyes.jpg";
-import heroHills from "@/assets/hero-hills.jpg";
-import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
-import artEcology from "@/assets/art-ecology.jpg";
-import artLetters from "@/assets/art-letters.jpg";
-import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
-import projForestPark from "@/assets/proj-forest-park.jpg";
-import projFlyoverMural from "@/assets/proj-flyover-mural.jpg";
-import projPortraits from "@/assets/proj-portraits.jpg";
-import projArtTrail from "@/assets/proj-art-trail.jpg";
-import projKalpanadham from "@/assets/proj-kalpanadham.jpg";
-import exhWomenCamp from "@/assets/exh-women-camp.jpg";
-import exhUnsung from "@/assets/exh-unsung.jpg";
-import notePigments from "@/assets/note-pigments.jpg";
-import fieldDocumentation from "@/assets/field-documentation.jpg";
+import { photo } from "./photos";
 
 /**
- * Content source of truth, mirrored from satyabhamamajhi.in.
- * Facts, titles, dates and imagery are preserved from the existing site.
+ * Content source of truth for the portfolio.
+ * Biographical facts, awards and project titles follow Satyabhama Majhi's
+ * published biography; imagery is photographed from her own works.
  */
 
 export const artist = {
@@ -35,8 +20,28 @@ export const artist = {
     "To use art as a medium for awareness, education, and empowerment — promoting sustainability through art, inspiring creativity that respects nature and humanity, and creating meaningful impact through research, collaboration, and community participation.",
   vision:
     "To build a compassionate and sustainable world where art, nature, and community thrive together — a future guided by creativity and strong values, where communities are empowered through art and knowledge while nature is respected and protected for generations to come.",
-  portrait: portraitImg,
+  portrait: photo.portrait,
 };
+
+export const facts = [
+  { label: "Practising since", value: "2000" },
+  { label: "Education", value: "M.F.A. in Traditional Art" },
+  { label: "Based in", value: "Bhubaneswar, Odisha" },
+  { label: "Foundation", value: "Secretary, Sasatwa Foundation" },
+];
+
+export const awards = [
+  {
+    title: "Odisha Lalit Kala Akademi State Award",
+    year: "2012",
+    detail: "State honour for contemporary painting.",
+  },
+  {
+    title: "National Lalit Kala Akademi Scholarship",
+    year: "2009 – 2010",
+    detail: "Awarded by Lalit Kala Akademi, New Delhi.",
+  },
+];
 
 export type Slide = {
   title: string;
@@ -49,19 +54,25 @@ export const heroSlides: Slide[] = [
     title: "A Garden of Everyday Life",
     caption:
       "A vibrant visual portrait of a public garden where people gather, relax, play, connect, and experience nature together.",
-    image: heroGarden,
+    image: photo.parkGreenDay,
   },
   {
-    title: "The World Through Young Eyes",
+    title: "The Weight We Carry",
     caption:
-      "A vibrant exploration of childhood, play, community, and the imaginative worlds children create around themselves.",
-    image: heroYoungEyes,
+      "Dongaria Kondh women painted in tondo form — sunflowers, baskets and the long walk between hill and market.",
+    image: photo.tondoThreeWomen,
   },
   {
     title: "Whispers of the Hills",
     caption:
-      "Where rolling green hills, distant trees, and an expansive blue sky come together in a serene visual harmony.",
-    image: heroHills,
+      "Niyamgiri's rolling green ridges, painted with pigments gathered from the same hills.",
+    image: photo.niyamgiriHills,
+  },
+  {
+    title: "Map of a Growing City",
+    caption:
+      "Bhubaneswar seen from above — traffic, vendors, animals and everyday movement drawn across a city plan.",
+    image: photo.cityMapBlue,
   },
 ];
 
@@ -78,37 +89,248 @@ export type Artwork = {
 
 export const artworks: Artwork[] = [
   {
-    slug: "unurbanisation-series-i",
-    title: "Unurbanisation Series I",
-    year: "2024",
-    medium: "Mixed media on canvas using natural pigments",
-    category: "Art & Paintings",
-    description:
-      "A painted enquiry into the tension between concrete expansion and the living landscape, built from earth pigments gathered in rural Odisha.",
-    image: artUnurbanisation,
-    featured: true,
-  },
-  {
-    slug: "ecology-of-living-spaces",
-    title: "Ecology of Living Spaces",
-    year: "2023",
-    medium: "Clay, charcoal, and acrylic on linen",
-    category: "Culture & Heritage",
-    description:
-      "Domestic and shared spaces read as ecologies — surfaces, textures and traces of the people who inhabit them.",
-    image: artEcology,
-    featured: true,
-  },
-  {
-    slug: "celebration-of-letters",
-    title: "Celebration of Letters",
-    year: "2011",
-    medium: "Mixed media on canvas using natural pigments",
+    slug: "vision-2040",
+    title: "Vision — 2040 IV",
+    year: "2006",
+    medium: "Acrylic on canvas, 3.9' × 3'",
     category: "Nature & Landscapes",
     description:
-      "Script, symbol and landscape held together on one surface, celebrating the written word as a living cultural form.",
-    image: artLetters,
+      "An aerial view of a plain slowly filling with rooftops — an early painting of the expansion that would later become the Unurbanisation series.",
+    image: photo.vision2040,
     featured: true,
+  },
+  {
+    slug: "hunger",
+    title: "Hunger",
+    year: "2009",
+    medium: "Acrylic on canvas, 48\" × 36\"",
+    category: "People & Community",
+    description:
+      "A gymnast balanced on a burger against a skyline — appetite, advertising and the modern city held in a single uneasy pose.",
+    image: photo.hunger,
+    featured: true,
+  },
+  {
+    slug: "rebirth",
+    title: "Rebirth",
+    year: "2015",
+    medium: "Mixed media on canvas, 2' × 2'",
+    category: "Culture & Heritage",
+    description:
+      "A conch opening onto a yantra — ritual geometry from Odisha's temple culture rendered in flat, contemporary colour.",
+    image: photo.rebirth,
+    featured: true,
+  },
+  {
+    slug: "nabakalebara",
+    title: "Nabakalebara (Re-Birth)",
+    year: "2015",
+    medium: "Mixed media on canvas, 3' × 4'",
+    category: "Culture & Heritage",
+    description:
+      "A checkered vortex drawing the viewer toward a small blooming centre — the cycle of renewal at the heart of the Nabakalebara ritual.",
+    image: photo.nabakalebara,
+    featured: true,
+  },
+  {
+    slug: "untitled-2015",
+    title: "Untitled",
+    year: "2015",
+    medium: "Mixed media on canvas, 3' × 4'",
+    category: "Nature & Landscapes",
+    description:
+      "A capsule of landscape suspended in gold — farmland and skyline sealed inside the same fragile container.",
+    image: photo.untitled2015,
+  },
+  {
+    slug: "sunflower-path",
+    title: "Sunflower Path",
+    year: "2022",
+    medium: "Acrylic on circular canvas",
+    category: "Art & Paintings",
+    description:
+      "Three figures walking a winding road through a field of sunflowers, painted in the round.",
+    image: photo.tondoSunflowerPath,
+  },
+  {
+    slug: "radiant",
+    title: "Radiant",
+    year: "2022",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "A woman crowned by a white star burst, surrounded by anthuriums and sunflowers — portraiture as celebration.",
+    image: photo.tondoRadiantWoman,
+  },
+  {
+    slug: "the-blue-triangle",
+    title: "The Blue Triangle",
+    year: "2023",
+    medium: "Acrylic on circular canvas",
+    category: "Culture & Heritage",
+    description:
+      "The Niyamgiri triangle motif behind two women carrying harvest baskets — a recurring symbol across the Dongaria Kondh works.",
+    image: photo.tondoBlueTriangle,
+  },
+  {
+    slug: "three-women",
+    title: "Three Women",
+    year: "2023",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "Head-loads, white cloth and gold ground — three women held inside a circle of sunflowers.",
+    image: photo.tondoThreeWomen,
+  },
+  {
+    slug: "the-long-walk",
+    title: "The Long Walk",
+    year: "2023",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "Figures crossing the tondo carrying baskets of produce, painted from market days in the hills.",
+    image: photo.tondoJourney,
+  },
+  {
+    slug: "resting-hour",
+    title: "Resting Hour",
+    year: "2023",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "A pause in the working day — women seated together beneath a single tall sunflower.",
+    image: photo.tondoGathering,
+  },
+  {
+    slug: "two-sisters",
+    title: "Two Sisters",
+    year: "2024",
+    medium: "Acrylic on circular canvas",
+    category: "Culture & Heritage",
+    description:
+      "A double portrait of Dongaria Kondh sisters in traditional ornament, framed by concentric blue.",
+    image: photo.tondoTwoSisters,
+  },
+  {
+    slug: "woman-with-staff",
+    title: "Woman with a Staff",
+    year: "2024",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "A quiet standing figure outlined in bands of colour, roots spreading below the horizon line.",
+    image: photo.tondoWomanStaff,
+  },
+  {
+    slug: "mother-and-children",
+    title: "Mother and Children",
+    year: "2024",
+    medium: "Acrylic on circular canvas",
+    category: "People & Community",
+    description:
+      "A haloed mother holding two children — devotional composition transposed onto village life.",
+    image: photo.tondoMotherChildren,
+  },
+  {
+    slug: "bloom-over-sight",
+    title: "Bloom Over Sight",
+    year: "2024",
+    medium: "Acrylic on canvas",
+    category: "Culture & Heritage",
+    description:
+      "A Dongaria Kondh portrait with flowers covering the eyes — beauty, adornment and what the forest is asked to hide.",
+    image: photo.dongariaPortrait,
+  },
+  {
+    slug: "market-abundance",
+    title: "Market, Abundance",
+    year: "2021",
+    medium: "Mixed media on canvas with city plan",
+    category: "Sustainable Living",
+    description:
+      "Tomatoes heaped across a printed city map while vendors and buyers move over the drawn streets.",
+    image: photo.marketAbundance,
+  },
+  {
+    slug: "crossing",
+    title: "Crossing",
+    year: "2021",
+    medium: "Mixed media on canvas with city plan",
+    category: "Sustainable Living",
+    description:
+      "A truck of workers halted at a signal, painted onto the survey map of the district they are travelling through.",
+    image: photo.marketCrossing,
+  },
+  {
+    slug: "red-city",
+    title: "Red City",
+    year: "2020",
+    medium: "Acrylic on canvas",
+    category: "Nature & Landscapes",
+    description:
+      "Street vendors, umbrellas and scattered belongings floating on an unbroken red field.",
+    image: photo.cityRedMarket,
+  },
+  {
+    slug: "city-map-blue",
+    title: "City Map, Blue",
+    year: "2020",
+    medium: "Acrylic on canvas",
+    category: "Nature & Landscapes",
+    description:
+      "Bhubaneswar's daily traffic drawn as a living diagram over cobalt ground.",
+    image: photo.cityMapBlue,
+  },
+  {
+    slug: "green-assembly",
+    title: "Green Assembly",
+    year: "2019",
+    medium: "Acrylic on canvas",
+    category: "People & Community",
+    description:
+      "A hillside procession of hundreds of small figures moving across rolling green.",
+    image: photo.hillProcession,
+  },
+  {
+    slug: "grove",
+    title: "Grove",
+    year: "2019",
+    medium: "Acrylic on canvas",
+    category: "Nature & Landscapes",
+    description:
+      "A dense, stippled forest with a village gathering held safely inside it.",
+    image: photo.groveGathering,
+  },
+  {
+    slug: "yellow-valley",
+    title: "Yellow Valley",
+    year: "2018",
+    medium: "Acrylic on canvas",
+    category: "Nature & Landscapes",
+    description:
+      "Dry-season hills in ochre, with a waterbody and a scattering of daily life at their base.",
+    image: photo.yellowValley,
+  },
+  {
+    slug: "yellow-forest",
+    title: "Yellow Forest",
+    year: "2018",
+    medium: "Acrylic on canvas",
+    category: "Nature & Landscapes",
+    description:
+      "A canopy painted dot by dot in gold and deep green, animals moving between the trees.",
+    image: photo.yellowForest,
+  },
+  {
+    slug: "carriers",
+    title: "Carriers",
+    year: "2017",
+    medium: "Mixed media on canvas",
+    category: "Art & Paintings",
+    description:
+      "A procession of figures shouldering loads beneath a single white bloom.",
+    image: photo.ochreCarriers,
   },
 ];
 
@@ -139,8 +361,8 @@ export const projects: Project[] = [
     location: "New Parliament House, New Delhi",
     category: "Community",
     description:
-      "A public participatory project with 100 indigenous women artists and artisans.",
-    image: projPeoplesWall,
+      "A public participatory project with 100 indigenous women artists and artisans, presented through Lalit Kala Akademi.",
+    image: photo.tondoTwoSisters,
   },
   {
     slug: "forest-park",
@@ -150,7 +372,7 @@ export const projects: Project[] = [
     category: "Ecological Art",
     description:
       "Nature-themed boundary walls capturing flowers, trees, and morning yoga activities.",
-    image: projForestPark,
+    image: photo.parkGreenDay,
   },
   {
     slug: "rajmahal-flyover",
@@ -160,7 +382,7 @@ export const projects: Project[] = [
     category: "Mural",
     description:
       "Connecting local haat vendors and daily life via street art paintings.",
-    image: projFlyoverMural,
+    image: photo.marketAbundance,
   },
   {
     slug: "rasulgarh-captain-portraits",
@@ -169,8 +391,8 @@ export const projects: Project[] = [
     location: "Rasulgarh, Bhubaneswar",
     category: "Public Art",
     description:
-      "Portraits of 16 hockey team captains painted on flyover pillars.",
-    image: projPortraits,
+      "Portraits of 16 hockey team captains painted on flyover pillars for the Hockey World Cup.",
+    image: photo.marketCrossing,
   },
   {
     slug: "bhubaneswar-art-trail",
@@ -179,8 +401,8 @@ export const projects: Project[] = [
     location: "Old Town, Bhubaneswar",
     category: "Public Installation",
     description:
-      "Architectural sculpture using metal and fabric inspired by ancient temple forms.",
-    image: projArtTrail,
+      "Architectural sculpture in welded metal inspired by ancient temple forms, sited in the old town.",
+    image: photo.sculptureRedInstallation,
   },
   {
     slug: "i-have-a-dream-kalpanadham",
@@ -190,7 +412,7 @@ export const projects: Project[] = [
     category: "Children Workshop",
     description:
       "Six-month workshop educating tribal children on organic farming and art.",
-    image: projKalpanadham,
+    image: photo.hillProcession,
   },
 ];
 
@@ -214,8 +436,19 @@ export const exhibitions: Exhibition[] = [
     location: "Bhubaneswar, India",
     status: "Current",
     description:
-      "A solo exhibition exhibiting the latest canvas works, mixed-media, and clay murals by Satyabhama Majhi.",
-    image: artEcology,
+      "A solo exhibition of the latest canvases, mixed-media surfaces and clay murals.",
+    image: photo.vision2040,
+  },
+  {
+    slug: "peoples-wall-parliament",
+    title: "People's Wall – Jan, Janani, Janmabhumi",
+    dates: "2023",
+    venue: "New Parliament House",
+    location: "New Delhi, India",
+    status: "Archive",
+    description:
+      "A participatory wall created with 100 indigenous women artists and artisans.",
+    image: photo.tondoThreeWomen,
   },
   {
     slug: "national-woman-artist-camp",
@@ -225,19 +458,19 @@ export const exhibitions: Exhibition[] = [
     location: "Puri, India",
     status: "Archive",
     description:
-      "A creative platform celebrating women artists, their artistic voices, diverse perspectives, and contributions to the world of contemporary art.",
-    image: exhWomenCamp,
+      "A creative platform celebrating women artists, their artistic voices, diverse perspectives, and contributions to contemporary art.",
+    image: photo.tondoRadiantWoman,
   },
   {
     slug: "unsung-heroes-of-odisha",
     title: "Unsung Heroes of Odisha Online Painting Camp",
     dates: "Aug 15, 2022 – Aug 20, 2022",
-    venue: "Lalit Kala Academy",
+    venue: "Lalit Kala Akademi",
     location: "New Delhi, India",
     status: "Archive",
     description:
-      "An online painting initiative celebrating the courage, contributions, and inspiring stories of remarkable individuals from Odisha whose work and sacrifices deserve greater recognition.",
-    image: exhUnsung,
+      "An online painting initiative celebrating the courage and contributions of remarkable individuals from Odisha.",
+    image: photo.ochreCarriers,
   },
   {
     slug: "5th-international-online-solo",
@@ -247,8 +480,19 @@ export const exhibitions: Exhibition[] = [
     location: "Online, Global",
     status: "Archive",
     description:
-      "A global platform showcasing an artist's creative journey, artistic vision, and unique body of work to audiences across the world.",
-    image: heroYoungEyes,
+      "A global platform showcasing the artist's creative journey and body of work.",
+    image: photo.nabakalebara,
+  },
+  {
+    slug: "bhubaneswar-art-trail",
+    title: "Bhubaneswar Art Trail",
+    dates: "2018",
+    venue: "Old Town",
+    location: "Bhubaneswar, India",
+    status: "Archive",
+    description:
+      "Site-specific metal sculpture drawn from the temple architecture of the old town.",
+    image: photo.sculptureArtTrail,
   },
   {
     slug: "saragiphula-childrens-art-festival",
@@ -258,8 +502,8 @@ export const exhibitions: Exhibition[] = [
     location: "Bhubaneswar, India",
     status: "Archive",
     description:
-      "A vibrant celebration of childhood creativity, imagination, and artistic expression, bringing young minds together through art and cultural activities.",
-    image: projKalpanadham,
+      "A celebration of childhood creativity and imagination through art and cultural activities.",
+    image: photo.groveGathering,
   },
 ];
 
@@ -279,8 +523,8 @@ export const notes: Article[] = [
     date: "Jun 20, 2026",
     category: "Research",
     excerpt:
-      "Field notes on the organic pigment harvesting techniques used by forest-dwelling communities.",
-    image: fieldDocumentation,
+      "Field notes on the natural pigments used in the Niyamgiri hills — chalk stone, charcoal, turmeric, geru soil and brown stone.",
+    image: photo.niyamgiriHills,
   },
   {
     slug: "what-does-unurbanisation-mean",
@@ -288,8 +532,17 @@ export const notes: Article[] = [
     date: "May 12, 2026",
     category: "Unurbanisation",
     excerpt:
-      "A philosophical inquiry into modern concrete expansion versus natural eco-preservation.",
-    image: artUnurbanisation,
+      "A philosophical inquiry into concrete expansion set against ecological preservation.",
+    image: photo.vision2040,
+  },
+  {
+    slug: "the-triangle-motif",
+    title: "The Triangle: A Motif from Niyamgiri",
+    date: "Feb 08, 2026",
+    category: "Symbols",
+    excerpt:
+      "Why a simple triangle recurs across the Dongaria Kondh paintings, and what it carries.",
+    image: photo.tondoBlueTriangle,
   },
 ];
 
@@ -300,8 +553,8 @@ export const blogs: Article[] = [
     date: "Aug 13, 2026",
     category: "Eco-Art",
     excerpt:
-      "Discover how landscapes, plants, textures, and changing environments inspire artistic expression and encourage us to see nature through a new creative perspective.",
-    image: heroHills,
+      "How landscapes, plants, textures and changing environments shape a painting practice.",
+    image: photo.yellowForest,
   },
   {
     slug: "art-as-a-catalyst-for-unurbanisation",
@@ -309,8 +562,8 @@ export const blogs: Article[] = [
     date: "Aug 01, 2026",
     category: "Philosophy",
     excerpt:
-      "Reflecting on how community art projects can challenge the standard definition of urban progress and save rural ecosystems.",
-    image: projPeoplesWall,
+      "How community art projects can challenge the standard definition of urban progress.",
+    image: photo.cityMapBlue,
   },
   {
     slug: "the-alchemy-of-natural-pigments",
@@ -318,8 +571,8 @@ export const blogs: Article[] = [
     date: "Jul 15, 2026",
     category: "Eco-Art",
     excerpt:
-      "Journey deep into the forests of Odisha to discover how local communities extract vibrant, sustainable pigments from seeds, stones, and leaves.",
-    image: notePigments,
+      "Into the forests of Odisha, where vibrant pigments are drawn from seeds, stones and leaves.",
+    image: photo.yellowValley,
   },
 ];
 
@@ -332,44 +585,77 @@ export type GalleryItem = {
 
 export const galleryItems: GalleryItem[] = [
   {
-    title: "Community & Collective Imagination",
+    title: "Two Sisters",
     caption:
-      "Art becomes more powerful when it brings people together — collaboration, community participation, and shared experiences shaping meaningful creative work.",
-    category: "Sustainable Living",
-    image: projKalpanadham,
-  },
-  {
-    title: "Where Culture Meets Creativity",
-    caption:
-      "The relationship between traditional culture and contemporary artistic practices — patterns, symbols, stories and heritage finding new forms.",
-    category: "Art & Paintings",
-    image: projArtTrail,
-  },
-  {
-    title: "Stories Hidden Within Everyday Life",
-    caption:
-      "Ordinary people, shared spaces, memories and experiences becoming meaningful sources of artistic inspiration.",
-    category: "Art & Paintings",
-    image: heroGarden,
-  },
-  {
-    title: "Art Painting",
-    caption:
-      "Traditional art, stories, symbols and cultural practices that preserve heritage while inspiring new generations.",
+      "A double portrait of Dongaria Kondh sisters in traditional ornament.",
     category: "Culture & Heritage",
-    image: artLetters,
+    image: photo.tondoTwoSisters,
   },
   {
-    title: "Field Documentation",
-    caption: "Documentation from studio and field practice.",
+    title: "Bloom Over Sight",
+    caption: "A portrait with flowers covering the eyes.",
+    category: "Culture & Heritage",
+    image: photo.dongariaPortrait,
+  },
+  {
+    title: "Sunflower Path",
+    caption: "Three figures walking a winding road through sunflowers.",
+    category: "Art & Paintings",
+    image: photo.tondoSunflowerPath,
+  },
+  {
+    title: "Radiant",
+    caption: "A woman crowned by a white star burst.",
+    category: "Art & Paintings",
+    image: photo.tondoRadiantWoman,
+  },
+  {
+    title: "Red Form",
+    caption: "Welded metal sculpture from the Bhubaneswar Art Trail.",
     category: "People & Community",
-    image: fieldDocumentation,
+    image: photo.sculptureRedForm,
   },
   {
-    title: "Unurbanisation Study",
-    caption: "A study surface from the Unurbanisation painting series.",
+    title: "Art Trail, Sited",
+    caption: "The sculpture installed against a patterned pavilion.",
+    category: "People & Community",
+    image: photo.sculptureArtTrail,
+  },
+  {
+    title: "Market, Abundance",
+    caption: "Tomatoes heaped across a printed city plan.",
+    category: "Sustainable Living",
+    image: photo.marketAbundance,
+  },
+  {
+    title: "Crossing",
+    caption: "A truck of workers halted at a signal.",
+    category: "Sustainable Living",
+    image: photo.marketCrossing,
+  },
+  {
+    title: "Grove",
+    caption: "A dense forest holding a village gathering inside it.",
     category: "Nature & Landscapes",
-    image: heroHills,
+    image: photo.groveGathering,
+  },
+  {
+    title: "Yellow Valley",
+    caption: "Dry-season hills in ochre.",
+    category: "Nature & Landscapes",
+    image: photo.yellowValley,
+  },
+  {
+    title: "Green Assembly",
+    caption: "A hillside procession of hundreds of small figures.",
+    category: "People & Community",
+    image: photo.hillProcession,
+  },
+  {
+    title: "Rebirth",
+    caption: "A conch opening onto a yantra.",
+    category: "Culture & Heritage",
+    image: photo.rebirth,
   },
 ];
 
@@ -387,55 +673,55 @@ export const practices = [
     n: "01",
     title: "Painting",
     text: "Continuous canvas practice with natural earth pigments and unurbanisation reflections.",
-    image: artUnurbanisation,
+    image: photo.vision2040,
   },
   {
     n: "02",
     title: "Installation",
     text: "Site-responsive installations built with metal, fabric, clay and gathered material.",
-    image: projArtTrail,
+    image: photo.sculptureRedInstallation,
   },
   {
     n: "03",
     title: "Sculpture",
-    text: "Architectural forms drawn from ancient temple structures of Odisha.",
-    image: projPortraits,
+    text: "Architectural forms drawn from the ancient temple structures of Odisha.",
+    image: photo.sculptureRedForm,
   },
   {
     n: "04",
     title: "Photography",
     text: "Documentary observation of landscape shifts, communities and everyday life.",
-    image: fieldDocumentation,
+    image: photo.niyamgiriHills,
   },
   {
     n: "05",
     title: "Mixed Media",
     text: "Layered surfaces combining clay, charcoal, acrylic and organic binders.",
-    image: artEcology,
+    image: photo.nabakalebara,
   },
   {
     n: "06",
     title: "Public Art",
     text: "Urban wall murals, civic monuments and heritage installations.",
-    image: projFlyoverMural,
+    image: photo.sculptureArtTrail,
   },
   {
     n: "07",
     title: "Community Art",
     text: "Co-creation with indigenous artisans, women collectives and villages.",
-    image: projPeoplesWall,
+    image: photo.tondoThreeWomen,
   },
   {
     n: "08",
     title: "Art Education",
     text: "Kalpanadham workshops with school children and creative learning programmes.",
-    image: projKalpanadham,
+    image: photo.parkGreenDay,
   },
   {
     n: "09",
     title: "Ecological Art",
     text: "Natural pigment research and ecological programmes across rural Odisha.",
-    image: notePigments,
+    image: photo.yellowForest,
   },
 ];
 
@@ -443,22 +729,27 @@ export const timeline = [
   {
     period: "2021 – Present",
     title: "Secretary & Community Director, Sasatwa Foundation",
-    text: "Spearheading large-scale ecological art installations, rural community art workshops, workshops with school children, and public wall murals across Odisha and national curatorial platforms.",
+    text: "Leading large-scale ecological art installations, rural community workshops, school programmes and public wall murals across Odisha, alongside national curatorial platforms.",
   },
   {
     period: "2015 – 2020",
     title: "Unurbanisation Field Research & Painting Series",
-    text: "Traversing rural landscapes, documenting landscape shifts, conducting artist residencies, and building mixed-media pigment portfolios reflecting ecological changes.",
+    text: "Travelling through rural Odisha, documenting landscape shifts, joining residencies and building mixed-media pigment portfolios that record ecological change.",
   },
   {
     period: "2010 – 2014",
-    title: "State Exhibitions, Public Art & Curatorial Solos",
-    text: "State-level honours and Lalit Kala Akademi recognition for solo exhibitions, public art initiatives, and regional contemporary workshops.",
+    title: "Dongaria Kondh Engagement & State Recognition",
+    text: "More than a decade of work with the Dongaria Kondh community of Niyamgiri begins in earnest, alongside the Odisha Lalit Kala Akademi State Award in 2012.",
   },
   {
-    period: "2006 – 2009",
-    title: "Foundational Paintings & Professional Journey Launch",
-    text: "Launching professional practice in 2006, experimenting with natural earth pigments, traditional motifs, and early community dialogue.",
+    period: "2005 – 2009",
+    title: "Studio Practice, Public Art & National Scholarship",
+    text: "Early Unurbanisation canvases including Vision — 2040 and Hunger, and the National Lalit Kala Akademi scholarship in 2009 – 2010.",
+  },
+  {
+    period: "2000 – 2004",
+    title: "Beginnings and M.F.A. in Traditional Art",
+    text: "Professional activity begins in 2000, grounded in traditional art training, natural earth pigments and the motifs of Odisha.",
   },
 ];
 
@@ -466,22 +757,22 @@ export const methodology = [
   {
     n: "01",
     title: "Pigment Foraging",
-    text: "Sourcing raw earth minerals, red clays, ochres, and organic stone oxides directly from Odisha's rural riverbeds and forest terrain.",
+    text: "Gathering chalk stone, charcoal, turmeric, geru soil and brown stone from Odisha's riverbeds and forest terrain.",
   },
   {
     n: "02",
     title: "Medium Crafting",
-    text: "Grinding, purifying, and blending natural binders, plant resins, and tree gums using ancient, sustainable preparation techniques.",
+    text: "Grinding, purifying and blending natural binders, plant resins and tree gums using traditional preparation techniques.",
   },
   {
     n: "03",
     title: "Community Co-Creation",
-    text: "Conducting inclusive workshops with village children, women collectives, and local artisans to record authentic oral histories.",
+    text: "Inclusive workshops with village children, women's collectives and local artisans, recording oral histories as they go.",
   },
   {
     n: "04",
     title: "Public Installations",
-    text: "Transforming natural pigments and shared stories into monumental civic wall murals, gallery canvases, and public installations.",
+    text: "Turning pigments and shared stories into civic murals, gallery canvases and public installations.",
   },
 ];
 
@@ -508,8 +799,7 @@ export const press = [
     year: "2026",
     date: "Apr 15, 2026",
     publication: "The Contemporary Art Herald",
-    title:
-      "Visualizing Rural Eco-Wisdom: Interview with Satyabhama Majhi",
+    title: "Visualizing Rural Eco-Wisdom: Interview with Satyabhama Majhi",
     description:
       "An in-depth conversation discussing art as community service and the philosophy of Unurbanisation.",
     category: "Interviews",
