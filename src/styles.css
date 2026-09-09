@@ -186,6 +186,10 @@
   padding-inline: clamp(1.25rem, 5vw, 5rem);
 }
 
+@utility hero-text-shadow {
+  text-shadow: 0 2px 18px oklch(0.2 0.02 75 / 0.55);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
