@@ -1,3 +1,4 @@
+import aboutPortrait from "@/assets/about-portrait.jpg";
 import artUnurbanisation from "@/assets/art-unurbanisation.jpg";
 import projPeoplesWall from "@/assets/proj-peoples-wall.jpg";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -48,24 +49,52 @@ function Home() {
       <HeroSlider />
 
       {/* 02 — ARTIST STATEMENT */}
-      <section className="edge py-24 md:py-40 grid gap-12 md:grid-cols-12">
-        <div className="md:col-span-7">
-          <h2 className="display-lg">
-            <TextReveal text={artist.statement} />
+      <section className="edge py-24 md:py-36 grid gap-16 md:grid-cols-12 items-center">
+        <div className="md:col-span-6">
+          <h2 className="display-xl uppercase tracking-tight">
+            <TextReveal text="Hello!" />
           </h2>
-        </div>
-        <div className="md:col-span-4 md:col-start-9 self-end">
           <Reveal delay={0.15}>
-            <p className="meta">About the artist</p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-8 font-display uppercase text-2xl md:text-3xl leading-[1.35] tracking-wide text-foreground/85 max-w-xl">
               {artist.short}
             </p>
-            <Link to="/about" className="mt-6 inline-block meta text-foreground link-rule">
-              About Satyabhama
+            <Link
+              to="/about"
+              className="mt-10 inline-block border border-foreground/40 px-8 py-3 meta text-foreground transition-colors hover:bg-foreground hover:text-background"
+            >
+              More details
             </Link>
           </Reveal>
         </div>
+
+        <div className="md:col-span-5 md:col-start-8 relative">
+          <Reveal delay={0.2}>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-[999px]" style={{ background: "var(--forest)" }}>
+              <img
+                src={aboutPortrait}
+                alt="Satyabhama Majhi painting outdoors"
+                loading="lazy"
+                width={1024}
+                height={1280}
+                className="h-full w-full object-cover mix-blend-multiply"
+              />
+            </div>
+            <div className="pointer-events-none absolute -top-8 -right-4 md:-right-10 h-32 w-32 md:h-40 md:w-40 animate-[spin_18s_linear_infinite]">
+              <svg viewBox="0 0 200 200" className="h-full w-full fill-foreground/70">
+                <defs>
+                  <path id="aboutCircle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" />
+                </defs>
+                <text fontSize="17" letterSpacing="3" className="font-display uppercase">
+                  <textPath href="#aboutCircle">
+                    Painter · Installation · Community art · Odisha ·
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+          </Reveal>
+        </div>
       </section>
+
 
       {/* 03 — FEATURED WORK MARQUEE */}
       <section className="pb-24 md:pb-40 overflow-hidden">
