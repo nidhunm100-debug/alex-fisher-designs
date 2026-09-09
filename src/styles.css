@@ -60,12 +60,12 @@
   --terracotta: oklch(0.575 0.128 45);
   --ochre: oklch(0.715 0.115 75);
   --forest: oklch(0.395 0.055 145);
-  --archive: oklch(0.3 0.045 145);
-  --archive-surface: oklch(0.35 0.05 145);
-  --archive-foreground: oklch(0.95 0.014 82);
-  --archive-muted: oklch(0.79 0.025 85);
-  --archive-line: oklch(0.49 0.05 142);
-  --archive-gold: oklch(0.77 0.105 75);
+  --archive: oklch(0.96 0.012 85);
+  --archive-surface: oklch(0.93 0.014 82);
+  --archive-foreground: oklch(0.22 0.012 60);
+  --archive-muted: oklch(0.52 0.02 62);
+  --archive-line: oklch(0.82 0.014 78);
+  --archive-gold: oklch(0.62 0.13 45);
 
   --card: oklch(0.949 0.014 82);
   --card-foreground: oklch(0.205 0.012 60);
