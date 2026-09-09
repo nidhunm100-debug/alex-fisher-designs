@@ -40,11 +40,11 @@ export function SiteHeader() {
       <motion.header
         animate={{ y: hidden ? "-130%" : "0%" }}
         transition={{ duration: 0.6, ease: EASE }}
-        className={`fixed inset-x-0 top-0 z-50 edge transition-[background,padding] duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 edge text-foreground transition-[background,padding] duration-500 ${
           scrolled
             ? "bg-background/85 backdrop-blur-md border-b border-border py-3"
             : "py-6 md:py-8"
-        } ${overHero ? "text-background" : ""}`}
+        }`}
       >
         <div className="flex items-center justify-between gap-6">
           <Magnetic strength={0.25}>
@@ -61,10 +61,8 @@ export function SiteHeader() {
               <Magnetic key={l.to} strength={0.35}>
                 <Link
                   to={l.to}
-                  className={`meta link-rise transition-colors ${
-                    overHero
-                      ? "text-background/70 hover:text-background"
-                      : `hover:text-foreground ${pathname.startsWith(l.to) ? "text-foreground" : ""}`
+                  className={`meta link-rise transition-colors hover:text-foreground ${
+                    pathname.startsWith(l.to) ? "text-foreground" : ""
                   }`}
                 >
                   {l.label}
@@ -77,7 +75,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className={`meta ${overHero ? "text-background" : "text-foreground"}`}
+              className="meta text-foreground"
               aria-label="Open menu"
             >
               Menu
