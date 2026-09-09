@@ -39,9 +39,9 @@ export function SiteHeader() {
       <motion.header
         animate={{ y: hidden ? "-130%" : "0%" }}
         transition={{ duration: 0.6, ease: EASE }}
-        className={`fixed inset-x-0 top-0 z-50 edge text-foreground transition-[background,padding] duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 edge text-foreground bg-background transition-[background,padding,shadow] duration-500 ${
           scrolled
-            ? "bg-background/85 backdrop-blur-md border-b border-border py-3"
+            ? "backdrop-blur-md border-b border-border py-3 shadow-sm"
             : "py-6 md:py-8"
         }`}
       >
