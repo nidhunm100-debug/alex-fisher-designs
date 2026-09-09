@@ -19,7 +19,7 @@ export function HeroSlider() {
   const slide = heroSlides[index]!;
 
   return (
-    <section className="relative min-h-[92vh] md:min-h-screen overflow-hidden">
+    <section className="relative min-h-[92vh] overflow-hidden bg-archive md:min-h-screen">
       <AnimatePresence mode="sync">
         <motion.img
           key={slide.image}
@@ -33,25 +33,25 @@ export function HeroSlider() {
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-foreground/50" />
+      <div className="absolute inset-0 bg-archive/35" />
       <div
         className="absolute inset-x-0 top-0 h-40"
         style={{
           background:
-            "linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 55%, transparent), transparent)",
+            "linear-gradient(to bottom, color-mix(in oklab, var(--archive) 76%, transparent), transparent)",
         }}
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-2/3"
+        className="absolute inset-x-0 bottom-0 h-3/4"
         style={{
           background:
-            "linear-gradient(to top, var(--background), transparent 85%)",
+            "linear-gradient(to top, var(--archive) 0%, color-mix(in oklab, var(--archive) 72%, transparent) 34%, transparent 82%)",
         }}
       />
 
       <div className="relative flex min-h-[92vh] md:min-h-screen flex-col justify-end edge pb-14 md:pb-20">
         <motion.h1
-          className="display-xl text-background"
+          className="display-xl text-archive-foreground"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: EASE }}
@@ -63,7 +63,7 @@ export function HeroSlider() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-end">
           <motion.p
-            className="meta text-background/90"
+            className="meta text-archive-gold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -80,10 +80,10 @@ export function HeroSlider() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.7, ease: EASE }}
               >
-                <p className="font-display text-2xl text-background">
+                <p className="font-display text-2xl text-archive-foreground">
                   {slide.title}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-background/75">
+                <p className="mt-2 text-sm leading-relaxed text-archive-muted">
                   {slide.caption}
                 </p>
               </motion.div>
@@ -96,10 +96,10 @@ export function HeroSlider() {
                   type="button"
                   onClick={() => setIndex(i)}
                   aria-label={`Show slide ${i + 1}: ${s.title}`}
-                  className="h-px w-12 bg-background/40 relative overflow-hidden"
+                  className="relative h-px w-12 overflow-hidden bg-archive-muted/40"
                 >
                   <span
-                    className={`absolute inset-0 origin-left bg-background transition-transform duration-500 ${
+                    className={`absolute inset-0 origin-left bg-archive-gold transition-transform duration-500 ${
                       i === index ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
