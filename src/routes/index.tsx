@@ -296,10 +296,12 @@ function FeatureWork({
   art,
   className,
   tall,
+  wide,
 }: {
   art: (typeof artworks)[number];
   className?: string;
   tall?: boolean;
+  wide?: boolean;
 }) {
   return (
     <article className={className}>
@@ -307,7 +309,9 @@ function FeatureWork({
         <ImageReveal
           src={art.image}
           alt={art.title}
-          className={tall ? "aspect-[4/3]" : "aspect-[3/4]"}
+          className={
+            wide ? "aspect-[16/10]" : tall ? "aspect-[4/3]" : "aspect-[3/4]"
+          }
           imgClassName="transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
         />
         <div className="mt-5 flex items-start justify-between gap-6">
