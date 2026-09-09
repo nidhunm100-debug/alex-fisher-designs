@@ -4,6 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { HeroSlider } from "@/components/HeroSlider";
 import { ImageReveal, Reveal, TextReveal } from "@/components/Reveal";
+import { Marquee } from "@/components/Marquee";
 import { ParallaxImage } from "@/components/Parallax";
 import { PracticeList } from "@/components/PracticeList";
 import {
