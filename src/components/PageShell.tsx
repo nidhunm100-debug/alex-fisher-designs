@@ -2,6 +2,10 @@ import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { SmoothScroll } from "./SmoothScroll";
+import { Cursor } from "./Cursor";
+import { ScrollProgress } from "./ScrollProgress";
+import { PageTransition } from "./PageTransition";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -9,11 +13,15 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen">
+      <SmoothScroll />
+      <Cursor />
+      <ScrollProgress />
+      <PageTransition />
       <SiteHeader />
       <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, ease: EASE }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
       >
         {children}
       </motion.main>
@@ -21,6 +29,7 @@ export function PageShell({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
 
 /** Large editorial page opening used by every inner page. */
 export function PageHeading({
