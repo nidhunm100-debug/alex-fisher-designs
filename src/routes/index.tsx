@@ -106,7 +106,6 @@ function Home() {
 
       {/* 03 — FEATURED WORK MARQUEE */}
       <section className="relative overflow-hidden border-t border-archive-line bg-archive py-24 text-archive-foreground md:py-36">
-        <div className="pointer-events-none absolute inset-y-0 left-[7%] hidden w-px bg-archive-line/50 lg:block" aria-hidden="true" />
         <div className="edge">
           <Reveal>
             <div className="flex items-end justify-between gap-8 border-b border-archive-line pb-6">
