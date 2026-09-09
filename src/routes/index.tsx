@@ -52,9 +52,11 @@ function Home() {
       <section className="relative py-28 md:py-40 bg-paper overflow-hidden">
         <div className="edge grid gap-16 md:gap-12 md:grid-cols-12 items-center">
           <div className="md:col-span-6 relative">
-            <h2 className="display-xl uppercase tracking-tight text-clay">
-              Hello!
-            </h2>
+            <Reveal y={40}>
+              <h2 className="display-xl uppercase tracking-tight text-clay">
+                Hello!
+              </h2>
+            </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-10 font-display uppercase text-xl md:text-2xl lg:text-3xl leading-[1.45] tracking-wide text-foreground/85 max-w-xl">
                 {artist.short}
