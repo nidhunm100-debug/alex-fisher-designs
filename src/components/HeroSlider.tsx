@@ -34,20 +34,6 @@ export function HeroSlider() {
       </AnimatePresence>
 
       <div className="absolute inset-0 bg-stone-950/20" />
-      <div
-        className="absolute inset-x-0 top-0 h-40"
-        style={{
-          background:
-            "linear-gradient(to bottom, color-mix(in oklab, var(--archive) 82%, transparent), transparent)",
-        }}
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 h-3/4"
-        style={{
-          background:
-            "linear-gradient(to top, var(--archive) 0%, color-mix(in oklab, var(--archive) 78%, transparent) 40%, transparent 82%)",
-        }}
-      />
 
       <div className="relative flex min-h-[92vh] md:min-h-screen flex-col justify-end edge pb-14 md:pb-20">
         <motion.h1
