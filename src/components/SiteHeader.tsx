@@ -1,21 +1,27 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/data/site";
+import { Magnetic } from "./Magnetic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const overHero = pathname === "/" && !scrolled;
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setScrolled(y > 40);
+    setHidden(y > 240 && y > prev && !open);
+  });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    setScrolled(window.scrollY > 40);
   }, []);
 
   useEffect(() => {
@@ -31,47 +37,55 @@ export function SiteHeader() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 edge transition-all duration-500 ${
+      <motion.header
+        animate={{ y: hidden ? "-130%" : "0%" }}
+        transition={{ duration: 0.6, ease: EASE }}
+        className={`fixed inset-x-0 top-0 z-50 edge transition-[background,padding] duration-500 ${
           scrolled
             ? "bg-background/85 backdrop-blur-md border-b border-border py-3"
             : "py-6 md:py-8"
         } ${overHero ? "text-background" : ""}`}
       >
         <div className="flex items-center justify-between gap-6">
-          <Link
-            to="/"
-            className="font-display text-lg md:text-xl tracking-tight leading-none"
-          >
-            Satyabhama <span className="italic">Majhi</span>
-          </Link>
+          <Magnetic strength={0.25}>
+            <Link
+              to="/"
+              className="font-display text-lg md:text-xl tracking-tight leading-none"
+            >
+              Satyabhama <span className="italic">Majhi</span>
+            </Link>
+          </Magnetic>
 
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className={`meta transition-colors ${
-                  overHero
-                    ? "text-background/70 hover:text-background"
-                    : `hover:text-foreground ${pathname.startsWith(l.to) ? "text-foreground" : ""}`
-                }`}
-              >
-                {l.label}
-              </Link>
+              <Magnetic key={l.to} strength={0.35}>
+                <Link
+                  to={l.to}
+                  className={`meta link-rise transition-colors ${
+                    overHero
+                      ? "text-background/70 hover:text-background"
+                      : `hover:text-foreground ${pathname.startsWith(l.to) ? "text-foreground" : ""}`
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              </Magnetic>
             ))}
           </nav>
 
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className={`lg:hidden meta ${overHero ? "text-background" : "text-foreground"}`}
-            aria-label="Open menu"
-          >
-            Menu
-          </button>
+          <Magnetic strength={0.3} className="lg:hidden">
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className={`meta ${overHero ? "text-background" : "text-foreground"}`}
+              aria-label="Open menu"
+            >
+              Menu
+            </button>
+          </Magnetic>
         </div>
-      </header>
+      </motion.header>
+
 
       <AnimatePresence>
         {open && (
