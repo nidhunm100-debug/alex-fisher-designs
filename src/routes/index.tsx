@@ -222,12 +222,12 @@ function Home() {
               <Link
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group grid items-center gap-3 py-6 md:grid-cols-12"
+                className="group grid items-center gap-2 py-6 md:grid-cols-12 md:gap-3"
               >
                 <span className="meta md:col-span-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="display-md md:col-span-6 transition-transform duration-500 group-hover:translate-x-2">
+                <span className="display-md md:col-span-6 transition-transform duration-500 md:group-hover:translate-x-2">
                   {p.title}
                 </span>
                 <span className="meta md:col-span-3">{p.location}</span>
