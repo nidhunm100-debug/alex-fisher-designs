@@ -19,7 +19,7 @@ export function HeroSlider() {
   const slide = heroSlides[index]!;
 
   return (
-    <section className="relative min-h-[92vh] overflow-hidden bg-archive md:min-h-screen">
+    <section className="relative min-h-[88svh] overflow-hidden bg-archive md:min-h-screen">
       <AnimatePresence mode="sync">
         <motion.img
           key={slide.image}
@@ -35,7 +35,7 @@ export function HeroSlider() {
 
       <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-stone-950/10" />
 
-      <div className="relative flex min-h-[92vh] md:min-h-screen flex-col justify-end edge pb-14 md:pb-20">
+      <div className="relative flex min-h-[88svh] md:min-h-screen flex-col justify-end edge pb-12 md:pb-20">
         <motion.h1
           className="display-xl text-archive hero-text-shadow"
           initial={{ opacity: 0, y: 40 }}
@@ -47,7 +47,7 @@ export function HeroSlider() {
           MAJHI
         </motion.h1>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-end">
+        <div className="mt-8 grid gap-6 md:mt-10 md:gap-8 md:grid-cols-2 md:items-end">
           <motion.p
             className="meta !text-archive/90 hero-text-shadow"
             initial={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export function HeroSlider() {
             Contemporary Artist — Curator — Community Art Practitioner
           </motion.p>
 
-          <div className="md:justify-self-end md:text-right max-w-sm">
+          <div className="max-w-sm md:justify-self-end md:text-right">
             <AnimatePresence mode="wait">
               <motion.div
                 key={slide.title}
@@ -66,7 +66,7 @@ export function HeroSlider() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.7, ease: EASE }}
               >
-                <p className="font-display text-2xl text-archive hero-text-shadow">
+                <p className="font-display text-xl text-archive hero-text-shadow sm:text-2xl">
                   {slide.title}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-archive/80 hero-text-shadow">
@@ -82,13 +82,15 @@ export function HeroSlider() {
                   type="button"
                   onClick={() => setIndex(i)}
                   aria-label={`Show slide ${i + 1}: ${s.title}`}
-                  className="relative h-px w-12 overflow-hidden bg-archive/30"
+                  className="group/dot relative -my-3 py-3"
                 >
+                  <span className="relative block h-px w-10 overflow-hidden bg-archive/30 sm:w-12">
                   <span
                     className={`absolute inset-0 origin-left bg-archive transition-transform duration-500 ${
                       i === index ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
+                  </span>
                 </button>
               ))}
             </div>
