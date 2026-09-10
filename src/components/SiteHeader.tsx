@@ -102,7 +102,14 @@ export function SiteHeader() {
             transition={{ duration: 0.7, ease: EASE }}
           >
             <div className="flex items-center justify-between py-6">
-              <span className="font-display text-lg">Satyabhama Majhi</span>
+              <span className="flex items-center gap-2.5 font-display text-lg">
+                <img
+                  src={artist.portrait}
+                  alt="Satyabhama Majhi"
+                  className="w-8 h-8 rounded-full object-cover ring-1 ring-border/70"
+                />
+                Satyabhama Majhi
+              </span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
