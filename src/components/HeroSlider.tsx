@@ -25,7 +25,9 @@ export function HeroSlider() {
           key={slide.image}
           src={slide.image}
           alt={slide.title}
-          className="absolute inset-0 h-full w-full object-cover"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover will-change-[opacity,transform]"
+
           initial={{ opacity: 0, scale: 1.12 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
