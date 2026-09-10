@@ -1,5 +1,20 @@
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+
+/**
+ * In-view detection with a safety fallback: if the observer never reports the
+ * element (small viewports, smooth-scroll containers), reveal it anyway.
+ */
+function useReveal(margin: string) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin } as never);
+  const [fallback, setFallback] = useState(false);
+  useEffect(() => {
+    const id = window.setTimeout(() => setFallback(true), 1200);
+    return () => window.clearTimeout(id);
+  }, []);
+  return [ref, inView || fallback] as const;
+}
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -15,12 +30,13 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
+  const [ref, shown] = useReveal("-80px");
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{ duration: 0.8, delay, ease: EASE }}
     >
       {children}
@@ -44,12 +60,13 @@ export function ImageReveal({
   contain?: boolean;
   delay?: number;
 }) {
+  const [ref, shown] = useReveal("-60px");
   return (
     <motion.div
+      ref={ref}
       className={`overflow-hidden ${className ?? ""}`}
       initial={{ clipPath: "inset(0 0 100% 0)" }}
-      whileInView={{ clipPath: "inset(0 0 0% 0)" }}
-      viewport={{ once: true, margin: "-60px" }}
+      animate={{ clipPath: shown ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
       transition={{ duration: 1, delay, ease: EASE }}
     >
       <motion.img
@@ -57,8 +74,7 @@ export function ImageReveal({
         alt={alt}
         loading="lazy"
         initial={{ scale: 1.14 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
+        animate={{ scale: shown ? 1 : 1.14 }}
         transition={{ duration: 1.4, delay, ease: EASE }}
         className={`h-full w-full ${contain ? "object-contain" : "object-cover"} ${imgClassName ?? ""}`}
       />
@@ -77,9 +93,10 @@ export function TextReveal({
   delay?: number;
 }) {
   const words = text.split(" ");
+  const [ref, shown] = useReveal("-60px");
   let charIndex = 0;
   return (
-    <span className={className}>
+    <span className={className} ref={ref as never}>
       {words.map((word, w) => (
         <span
           key={`${word}-${w}`}
@@ -92,8 +109,11 @@ export function TextReveal({
                 key={`${char}-${c}`}
                 className="inline-block"
                 initial={{ y: "115%", rotate: 4, opacity: 0 }}
-                whileInView={{ y: 0, rotate: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-60px" }}
+                animate={
+                  shown
+                    ? { y: 0, rotate: 0, opacity: 1 }
+                    : { y: "115%", rotate: 4, opacity: 0 }
+                }
                 transition={{
                   duration: 0.95,
                   delay: delay + i * 0.022,
