@@ -2,12 +2,14 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 import { useRouterState } from "@tanstack/react-router";
 
-/** Site-wide inertial smooth scrolling (disabled for reduced-motion users). */
+/** Site-wide inertial smooth scrolling (desktop pointers only). */
 export function SmoothScroll() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Touch devices already scroll natively and smoothly; Lenis adds jank there.
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const lenis = new Lenis({
       duration: 1.15,

@@ -16,16 +16,23 @@ export function Cursor() {
     if (!fine || reduced) return;
     setEnabled(true);
 
+    let isActive = false;
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
       const el = e.target as HTMLElement | null;
-      setActive(
-        !!el?.closest?.('a, button, [role="button"], img, input, textarea'),
+      const next = !!el?.closest?.(
+        'a, button, [role="button"], img, input, textarea',
       );
+      // Only re-render when the hover state actually changes.
+      if (next !== isActive) {
+        isActive = next;
+        setActive(next);
+      }
     };
     window.addEventListener("mousemove", move, { passive: true });
     return () => window.removeEventListener("mousemove", move);
+
   }, [x, y]);
 
   if (!enabled) return null;

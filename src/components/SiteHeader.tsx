@@ -41,7 +41,7 @@ export function SiteHeader() {
         transition={{ duration: 0.6, ease: EASE }}
         className={`fixed inset-x-0 top-0 z-50 edge text-foreground bg-background transition-[background,padding,shadow] duration-500 ${
           scrolled
-            ? "backdrop-blur-md border-b border-border py-3 shadow-sm"
+            ? "border-b border-border py-3 shadow-sm"
             : "py-6 md:py-8"
         }`}
       >

@@ -85,6 +85,8 @@ export function ImageReveal({
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
+
         initial={{ scale: 1 }}
         animate={{ scale: !mounted || shown ? 1 : 1.14 }}
         transition={shown ? { duration: 1.4, delay, ease: EASE } : { duration: 0 }}

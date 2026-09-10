@@ -93,9 +93,9 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
+
 
   body {
     background-color: var(--color-background);
