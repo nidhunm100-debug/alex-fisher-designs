@@ -15,6 +15,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/Cursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { PageTransition } from "@/components/PageTransition";
+import { Toaster } from "@/components/ui/sonner";
 
 
 function NotFoundComponent() {
