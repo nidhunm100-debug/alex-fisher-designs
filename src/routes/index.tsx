@@ -1,5 +1,6 @@
 import aboutPortraitAsset from "@/assets/about-portrait.png.asset.json";
-const aboutPortrait = aboutPortraitAsset.url;
+import { assetUrl } from "@/lib/asset-url";
+const aboutPortrait = assetUrl(aboutPortraitAsset);
 import { photo } from "@/data/photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
