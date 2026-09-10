@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/data/site";
+import { artist, navLinks } from "@/data/site";
 import { Magnetic } from "./Magnetic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -49,9 +49,16 @@ export function SiteHeader() {
           <Magnetic strength={0.25}>
             <Link
               to="/"
-              className="font-display text-lg md:text-xl tracking-tight leading-none"
+              className="flex items-center gap-2.5 font-display text-lg md:text-xl tracking-tight leading-none"
             >
-              Satyabhama <span className="italic">Majhi</span>
+              <img
+                src={artist.portrait}
+                alt="Satyabhama Majhi"
+                className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover ring-1 ring-border/70"
+              />
+              <span>
+                Satyabhama <span className="italic">Majhi</span>
+              </span>
             </Link>
           </Magnetic>
 
@@ -95,7 +102,14 @@ export function SiteHeader() {
             transition={{ duration: 0.7, ease: EASE }}
           >
             <div className="flex items-center justify-between py-6">
-              <span className="font-display text-lg">Satyabhama Majhi</span>
+              <span className="flex items-center gap-2.5 font-display text-lg">
+                <img
+                  src={artist.portrait}
+                  alt="Satyabhama Majhi"
+                  className="w-8 h-8 rounded-full object-cover ring-1 ring-border/70"
+                />
+                Satyabhama Majhi
+              </span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
