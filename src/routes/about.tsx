@@ -94,7 +94,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="edge py-24 md:py-32 grid gap-12 md:grid-cols-2">
+      <section className="edge py-16 md:py-32 grid gap-12 md:grid-cols-2">
         <Reveal>
           <p className="meta">Mission</p>
           <p className="mt-4 font-display text-xl leading-snug">
@@ -149,7 +149,7 @@ function AboutPage() {
         </ol>
       </section>
 
-      <section className="edge py-24" style={{ background: "var(--paper)" }}>
+      <section className="edge py-16 md:py-24" style={{ background: "var(--paper)" }}>
         <Reveal>
           <p className="meta">Awards & recognition</p>
         </Reveal>
@@ -165,7 +165,7 @@ function AboutPage() {
       </section>
 
 
-      <section className="edge py-24 md:py-32">
+      <section className="edge py-16 md:py-32">
         <Reveal>
           <p className="meta">Process & practice</p>
           <h2 className="display-lg mt-4 mb-12">Creative methodology</h2>
