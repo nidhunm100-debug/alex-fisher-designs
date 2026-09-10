@@ -57,7 +57,7 @@ function ContactPage() {
 
   return (
     <PageShell>
-      <section className="edge pt-36 md:pt-48 pb-16">
+      <section className="edge pt-32 pb-10 md:pt-48 md:pb-16">
         <Reveal>
           <p className="meta">Collaborations & enquiries</p>
           <h1 className="display-xl mt-4">
@@ -72,7 +72,7 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="edge pb-24 grid gap-16 md:grid-cols-12">
+      <section className="edge pb-16 grid gap-10 md:pb-24 md:gap-16 md:grid-cols-12">
         <Reveal className="md:col-span-4">
           <div className="space-y-8">
             <div>

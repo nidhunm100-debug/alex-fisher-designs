@@ -50,7 +50,7 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <PageShell>
-      <section className="edge pt-36 md:pt-48 pb-16">
+      <section className="edge pt-32 pb-10 md:pt-48 md:pb-16">
         <Reveal>
           <p className="meta">Biography</p>
           <h1 className="display-xl mt-4">
@@ -65,7 +65,7 @@ function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="edge grid gap-12 md:grid-cols-12">
+      <section className="edge grid gap-8 md:gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <ImageReveal
             src={artist.portrait}
@@ -134,7 +134,7 @@ function AboutPage() {
           {timeline.map((t, i) => (
             <li key={t.period} className="border-t border-border">
               <Reveal delay={i * 0.06}>
-                <div className="grid gap-4 py-10 md:grid-cols-12">
+                <div className="grid gap-3 py-8 md:gap-4 md:py-10 md:grid-cols-12">
                   <p className="display-md md:col-span-4">{t.period}</p>
                   <div className="md:col-span-7 md:col-start-6">
                     <h3 className="font-display text-2xl">{t.title}</h3>
