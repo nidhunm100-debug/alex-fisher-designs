@@ -37,7 +37,7 @@ function WorkDetail() {
 
   return (
     <PageShell>
-      <section className="edge pt-36 md:pt-48 pb-12">
+      <section className="edge pt-32 pb-8 md:pt-48 md:pb-12">
         <Reveal>
           <p className="meta">{art.category}</p>
           <h1 className="display-lg mt-4">{art.title}</h1>

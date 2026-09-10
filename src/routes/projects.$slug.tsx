@@ -38,7 +38,7 @@ function ProjectDetail() {
 
   return (
     <PageShell>
-      <section className="edge pt-36 md:pt-48 pb-10">
+      <section className="edge pt-32 pb-8 md:pt-48 md:pb-10">
         <Reveal>
           <p className="meta">{project.category}</p>
           <h1 className="display-lg mt-4 max-w-4xl">{project.title}</h1>

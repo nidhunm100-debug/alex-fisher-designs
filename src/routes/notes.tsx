@@ -33,7 +33,7 @@ function NotesPage() {
         intro="Research, observations, field experiences and reflections from the workspace of Satyabhama Majhi."
       />
 
-      <section className="edge py-20 grid gap-x-10 gap-y-24 md:grid-cols-12">
+      <section className="edge py-12 grid gap-x-10 gap-y-14 md:py-20 md:gap-y-24 md:grid-cols-12">
         {notes.map((n, i) => (
           <article
             key={n.slug}
