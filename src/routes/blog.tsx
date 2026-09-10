@@ -33,7 +33,7 @@ function BlogPage() {
         intro="Deep-dives, stories behind the canvas, forest exploration diaries and ecological art reflections."
       />
 
-      <section className="edge py-20">
+      <section className="edge py-12 md:py-20">
         {blogs.map((b, i) => (
           <article key={b.slug} className="border-b border-border py-14 first:pt-4">
             <div className="grid gap-8 md:grid-cols-12 md:items-center">

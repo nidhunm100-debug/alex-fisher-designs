@@ -50,14 +50,14 @@ function WorkPage() {
         intro="Filter and examine works across signature themes — painting, natural pigment research and mixed media."
       />
 
-      <section className="edge py-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <section className="edge py-8 flex flex-col gap-5 md:py-10 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap gap-x-6 gap-y-3">
           {workCategories.map((c) => (
             <button
               key={c}
               type="button"
               onClick={() => setCategory(c)}
-              className={`meta transition-colors hover:text-foreground ${
+              className={`meta py-1 transition-colors hover:text-foreground ${
                 category === c ? "text-foreground" : ""
               }`}
             >
@@ -74,13 +74,13 @@ function WorkPage() {
         />
       </section>
 
-      <section className="edge pb-24">
+      <section className="edge pb-16 md:pb-24">
         {filtered.length === 0 ? (
           <p className="py-20 meta">No works match this filter.</p>
         ) : (
-          <div className="columns-1 gap-10 md:columns-2 lg:columns-3">
+          <div className="columns-1 gap-10 sm:columns-2 lg:columns-3">
             {filtered.map((a, i) => (
-              <article key={a.slug} className="mb-14 break-inside-avoid">
+              <article key={a.slug} className="mb-10 break-inside-avoid md:mb-14">
                 <Link
                   to="/work/$slug"
                   params={{ slug: a.slug }}

@@ -50,15 +50,15 @@ function Home() {
       <HeroSlider />
 
       {/* 02 — ARTIST STATEMENT */}
-      <section className="relative overflow-hidden bg-archive py-24 text-archive-foreground md:py-36 lg:min-h-[880px] lg:flex lg:items-center">
+      <section className="relative overflow-hidden bg-archive py-16 text-archive-foreground md:py-36 lg:min-h-[880px] lg:flex lg:items-center">
         <div className="pointer-events-none absolute inset-y-0 left-[7%] hidden w-px bg-archive-line/50 lg:block" aria-hidden="true" />
         <div className="edge mx-auto grid w-full max-w-[1500px] items-center gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="relative order-2 lg:order-1 lg:col-span-7 lg:pl-10">
             <Reveal>
               <p className="meta mb-8 text-archive-gold">The living archive · Bhubaneswar</p>
-              <h2 className="font-display text-[clamp(4.75rem,10vw,9rem)] leading-[0.78] text-archive-foreground">
+              <h2 className="font-display text-[clamp(2.75rem,12vw,9rem)] leading-[0.85] text-archive-foreground sm:leading-[0.78]">
                 Hello,
-                <span className="mt-3 block italic text-archive-muted">I’m Satyabhama.</span>
+                <span className="mt-2 block italic text-archive-muted sm:mt-3">I’m Satyabhama.</span>
               </h2>
             </Reveal>
 
@@ -106,7 +106,7 @@ function Home() {
 
 
       {/* 03 — FEATURED WORK MARQUEE */}
-      <section className="relative overflow-hidden border-t border-archive-line bg-archive py-24 text-archive-foreground md:py-36">
+      <section className="relative overflow-hidden border-t border-archive-line bg-archive py-16 text-archive-foreground md:py-36">
         <div className="edge">
           <Reveal>
             <div className="flex items-end justify-between gap-8 border-b border-archive-line pb-6">
@@ -135,7 +135,7 @@ function Home() {
       </section>
 
       {/* 04 — UNURBANISATION */}
-      <section className="py-24 md:py-32" style={{ background: "var(--paper)" }}>
+      <section className="py-16 md:py-32" style={{ background: "var(--paper)" }}>
         <div className="edge">
           <Reveal>
             <p className="meta">Ongoing enquiry</p>
@@ -167,7 +167,7 @@ function Home() {
       </section>
 
       {/* 05 — ARTISTIC PRACTICE */}
-      <section className="edge py-24 md:py-36">
+      <section className="edge py-16 md:py-36">
         <Reveal>
           <p className="meta">Practice</p>
           <h2 className="display-lg mt-4 mb-12">Ways of working</h2>
@@ -176,7 +176,7 @@ function Home() {
       </section>
 
       {/* 06 — COMMUNITY */}
-      <section className="edge py-24 md:py-32 border-t border-border">
+      <section className="edge py-16 md:py-32 border-t border-border">
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-5">
             <p className="meta">Art as service</p>
@@ -207,7 +207,7 @@ function Home() {
       </section>
 
       {/* 07 — SELECTED PROJECTS */}
-      <section className="edge py-24 md:py-32">
+      <section className="edge py-16 md:py-32">
         <Reveal>
           <div className="flex items-end justify-between border-b border-border pb-5">
             <h2 className="display-md">Selected Projects</h2>
@@ -222,12 +222,12 @@ function Home() {
               <Link
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group grid items-center gap-3 py-6 md:grid-cols-12"
+                className="group grid items-center gap-2 py-6 md:grid-cols-12 md:gap-3"
               >
                 <span className="meta md:col-span-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="display-md md:col-span-6 transition-transform duration-500 group-hover:translate-x-2">
+                <span className="display-md md:col-span-6 transition-transform duration-500 md:group-hover:translate-x-2">
                   {p.title}
                 </span>
                 <span className="meta md:col-span-3">{p.location}</span>
@@ -240,7 +240,7 @@ function Home() {
 
       {/* 08 — EXHIBITIONS */}
       {current && (
-        <section className="edge py-24 md:py-32 border-t border-border">
+        <section className="edge py-16 md:py-32 border-t border-border">
           <div className="grid gap-10 md:grid-cols-12">
             <div className="md:col-span-6">
               <ImageReveal
@@ -271,7 +271,7 @@ function Home() {
       )}
 
       {/* 09 — JOURNAL */}
-      <section className="edge py-24 md:py-32">
+      <section className="edge py-16 md:py-32">
         <Reveal>
           <div className="flex items-end justify-between border-b border-border pb-5">
             <h2 className="display-md">From the Studio</h2>
@@ -304,7 +304,7 @@ function Home() {
       </section>
 
       {/* 10 — QUOTES */}
-      <section className="edge py-24 md:py-32 border-t border-border">
+      <section className="edge py-16 md:py-32 border-t border-border">
         <div className="grid gap-12 md:grid-cols-3">
           {quotes.map((q, i) => (
             <Reveal key={q.author} delay={i * 0.1}>
@@ -318,7 +318,7 @@ function Home() {
       </section>
 
       {/* 11 — CONTACT */}
-      <section className="edge py-24 md:py-36">
+      <section className="edge py-16 md:py-36">
         <Reveal>
           <p className="meta">Collaborations & enquiries</p>
           <h2 className="display-lg mt-4 max-w-3xl">

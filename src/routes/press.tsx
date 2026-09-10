@@ -33,7 +33,7 @@ function PressPage() {
         intro="Interviews, publications, reviews and external media coverage documenting Satyabhama Majhi's artistic trajectory."
       />
 
-      <section className="edge py-20">
+      <section className="edge py-12 md:py-20">
         <ul>
           {press.map((p, i) => (
             <li key={p.title} className="border-t border-border last:border-b">

@@ -33,7 +33,7 @@ function ProjectsPage() {
         intro="Collaborative works, workshops and environmental initiatives connecting sustainable practice with rural community voices."
       />
 
-      <section className="edge py-20 grid gap-x-10 gap-y-24 md:grid-cols-12">
+      <section className="edge py-12 grid gap-x-10 gap-y-14 md:py-20 md:gap-y-24 md:grid-cols-12">
         {projects.map((p, i) => {
           const wide = i % 3 === 0;
           return (

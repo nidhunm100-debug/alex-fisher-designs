@@ -35,7 +35,7 @@ export function PageHeading({
   intro?: string;
 }) {
   return (
-    <section className="edge pt-36 md:pt-48 pb-14 md:pb-20 border-b border-border">
+    <section className="edge pt-32 md:pt-48 pb-10 md:pb-20 border-b border-border">
       <motion.p
         className="meta"
         initial={{ opacity: 0 }}

@@ -46,13 +46,13 @@ function GalleryPage() {
         intro="Artwork images, research reflections and field documentation. Select any image for the full view."
       />
 
-      <section className="edge py-10 flex flex-wrap gap-x-6 gap-y-3">
+      <section className="edge py-8 flex flex-wrap gap-x-6 gap-y-2 md:py-10 md:gap-y-3">
         {galleryCategories.map((c) => (
           <button
             key={c}
             type="button"
             onClick={() => setCategory(c)}
-            className={`meta transition-colors hover:text-foreground ${
+            className={`meta py-1 transition-colors hover:text-foreground ${
               category === c ? "text-foreground" : ""
             }`}
           >
@@ -61,7 +61,7 @@ function GalleryPage() {
         ))}
       </section>
 
-      <section className="edge pb-24">
+      <section className="edge pb-16 md:pb-24">
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
           {items.map((g, i) => (
             <button

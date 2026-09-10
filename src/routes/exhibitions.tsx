@@ -37,7 +37,7 @@ function ExhibitionsPage() {
       />
 
       {current.map((e) => (
-        <section key={e.slug} className="edge py-20 border-b border-border">
+        <section key={e.slug} className="edge py-12 border-b border-border md:py-20">
           <div className="grid gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <ImageReveal src={e.image} alt={e.title} className="aspect-[16/10]" />
@@ -57,15 +57,15 @@ function ExhibitionsPage() {
         </section>
       ))}
 
-      <section className="edge py-20">
+      <section className="edge py-12 md:py-20">
         <Reveal>
           <p className="meta">Archive</p>
         </Reveal>
-        <ul className="mt-10">
+        <ul className="mt-8 md:mt-10">
           {archive.map((e, i) => (
             <li key={e.slug} className="border-t border-border">
               <Reveal delay={i * 0.05}>
-                <div className="grid gap-6 py-12 md:grid-cols-12">
+                <div className="grid gap-5 py-8 md:gap-6 md:py-12 md:grid-cols-12">
                   <div className="md:col-span-3">
                     <ImageReveal
                       src={e.image}
