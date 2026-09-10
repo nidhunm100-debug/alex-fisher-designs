@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/data/site";
+import { artist, navLinks } from "@/data/site";
 import { Magnetic } from "./Magnetic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
