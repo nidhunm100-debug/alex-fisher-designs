@@ -78,9 +78,9 @@ function WorkPage() {
         {filtered.length === 0 ? (
           <p className="py-20 meta">No works match this filter.</p>
         ) : (
-          <div className="columns-1 gap-10 sm:columns-2 lg:columns-3">
+          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-14">
             {filtered.map((a, i) => (
-              <article key={a.slug} className="mb-10 break-inside-avoid md:mb-14">
+              <article key={a.slug} className="flex flex-col">
                 <Link
                   to="/work/$slug"
                   params={{ slug: a.slug }}
