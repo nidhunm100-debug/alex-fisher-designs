@@ -4,6 +4,8 @@ import { PageShell, PageHeading } from "@/components/PageShell";
 import { ImageReveal } from "@/components/Reveal";
 import { Lightbox } from "@/components/Lightbox";
 import { galleryCategories, galleryItems } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchArtworks } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -29,14 +31,23 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   const [category, setCategory] = useState("All");
   const [index, setIndex] = useState<number | null>(null);
+  const { data: managed } = useQuery({
+    queryKey: ["public-artworks"],
+    queryFn: fetchArtworks,
+  });
 
-  const items = useMemo(
-    () =>
-      galleryItems.filter(
-        (g) => category === "All" || g.category === category,
-      ),
-    [category],
-  );
+  const items = useMemo(() => {
+    const added = (managed ?? [])
+      .filter((a) => a.is_visible && a.image_url)
+      .map((a) => ({
+        image: a.image_url as string,
+        title: a.title,
+        category: a.category || "Artwork",
+      }));
+    return [...added, ...galleryItems].filter(
+      (g) => category === "All" || g.category === category,
+    );
+  }, [category, managed]);
 
   return (
     <PageShell>
