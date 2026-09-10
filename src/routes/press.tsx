@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHeading } from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { press } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPress } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/press")({
   head: () => ({
@@ -25,6 +27,22 @@ export const Route = createFileRoute("/press")({
 });
 
 function PressPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-press"],
+    queryFn: fetchPress,
+  });
+  const items = [
+    ...(managed ?? [])
+      .filter((p) => p.is_visible)
+      .map((p) => ({
+        title: p.title,
+        year: p.published_on ?? "",
+        publication: p.publication ?? "",
+        date: p.published_on ?? "",
+        description: p.excerpt ?? "",
+      })),
+    ...press,
+  ];
   return (
     <PageShell>
       <PageHeading
@@ -35,7 +53,7 @@ function PressPage() {
 
       <section className="edge py-12 md:py-20">
         <ul>
-          {press.map((p, i) => (
+          {items.map((p, i) => (
             <li key={p.title} className="border-t border-border last:border-b">
               <Reveal delay={i * 0.05}>
                 <div className="grid gap-4 py-12 md:grid-cols-12">

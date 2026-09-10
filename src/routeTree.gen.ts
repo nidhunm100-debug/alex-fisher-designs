@@ -10,13 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExhibitionsRouteImport } from './routes/exhibitions'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as PressRouteImport } from './routes/press'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
@@ -27,9 +30,18 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -62,6 +74,11 @@ const PressRoute = PressRouteImport.update({
   path: '/press',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -86,12 +103,14 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/gallery': typeof GalleryRoute
   '/notes': typeof NotesRoute
   '/press': typeof PressRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/work/$slug': typeof WorkSlugRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -100,12 +119,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/gallery': typeof GalleryRoute
   '/notes': typeof NotesRoute
   '/press': typeof PressRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/work/$slug': typeof WorkSlugRoute
   '/projects': typeof ProjectsIndexRoute
@@ -114,13 +135,16 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/gallery': typeof GalleryRoute
   '/notes': typeof NotesRoute
   '/press': typeof PressRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/work/$slug': typeof WorkSlugRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -131,12 +155,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/auth'
     | '/blog'
     | '/contact'
     | '/exhibitions'
     | '/gallery'
     | '/notes'
     | '/press'
+    | '/admin'
     | '/projects/$slug'
     | '/work/$slug'
     | '/projects/'
@@ -145,12 +171,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/auth'
     | '/blog'
     | '/contact'
     | '/exhibitions'
     | '/gallery'
     | '/notes'
     | '/press'
+    | '/admin'
     | '/projects/$slug'
     | '/work/$slug'
     | '/projects'
@@ -158,13 +186,16 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
+    | '/auth'
     | '/blog'
     | '/contact'
     | '/exhibitions'
     | '/gallery'
     | '/notes'
     | '/press'
+    | '/_authenticated/admin'
     | '/projects/$slug'
     | '/work/$slug'
     | '/projects/'
@@ -173,7 +204,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   ExhibitionsRoute: typeof ExhibitionsRoute
@@ -195,11 +228,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -244,6 +291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -275,9 +329,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   ExhibitionsRoute: ExhibitionsRoute,

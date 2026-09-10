@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHeading } from "@/components/PageShell";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { exhibitions } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchExhibitions } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/exhibitions")({
   head: () => ({
@@ -25,8 +27,24 @@ export const Route = createFileRoute("/exhibitions")({
 });
 
 function ExhibitionsPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-exhibitions"],
+    queryFn: fetchExhibitions,
+  });
+  const added = (managed ?? [])
+    .filter((e) => e.is_visible)
+    .map((e) => ({
+      slug: e.id,
+      title: e.title,
+      dates: e.year ?? "",
+      venue: e.venue ?? "",
+      location: e.city ?? "",
+      description: e.description ?? "",
+      image: "",
+      status: "Archive" as const,
+    }));
   const current = exhibitions.filter((e) => e.status === "Current");
-  const archive = exhibitions.filter((e) => e.status === "Archive");
+  const archive = [...added, ...exhibitions.filter((e) => e.status === "Archive")];
 
   return (
     <PageShell>
@@ -67,11 +85,13 @@ function ExhibitionsPage() {
               <Reveal delay={i * 0.05}>
                 <div className="grid gap-5 py-8 md:gap-6 md:py-12 md:grid-cols-12">
                   <div className="md:col-span-3">
-                    <ImageReveal
-                      src={e.image}
-                      alt={e.title}
-                      className="aspect-[4/3]"
-                    />
+                    {e.image ? (
+                      <ImageReveal
+                        src={e.image}
+                        alt={e.title}
+                        className="aspect-[4/3]"
+                      />
+                    ) : null}
                   </div>
                   <div className="md:col-span-6 md:col-start-5">
                     <h3 className="display-md">{e.title}</h3>

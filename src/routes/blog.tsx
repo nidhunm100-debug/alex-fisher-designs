@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHeading } from "@/components/PageShell";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { blogs } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPosts } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -25,6 +27,23 @@ export const Route = createFileRoute("/blog")({
 });
 
 function BlogPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-posts", "blog"],
+    queryFn: () => fetchPosts("blog"),
+  });
+  const posts = [
+    ...(managed ?? [])
+      .filter((p) => p.is_published)
+      .map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        category: "Journal",
+        date: p.published_at ? new Date(p.published_at).toLocaleDateString() : "",
+        excerpt: p.excerpt ?? "",
+        image: p.cover_image_url ?? "",
+      })),
+    ...blogs,
+  ];
   return (
     <PageShell>
       <PageHeading
@@ -34,13 +53,15 @@ function BlogPage() {
       />
 
       <section className="edge py-12 md:py-20">
-        {blogs.map((b, i) => (
+        {posts.map((b, i) => (
           <article key={b.slug} className="border-b border-border py-14 first:pt-4">
             <div className="grid gap-8 md:grid-cols-12 md:items-center">
               <div
                 className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2 md:col-start-8" : ""}`}
               >
-                <ImageReveal src={b.image} alt={b.title} className="aspect-[4/3]" />
+                {b.image ? (
+                  <ImageReveal src={b.image} alt={b.title} className="aspect-[4/3]" />
+                ) : null}
               </div>
               <Reveal
                 delay={0.08}
