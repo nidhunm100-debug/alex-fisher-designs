@@ -46,8 +46,8 @@ export function Reveal({
       ref={ref}
       className={className}
       initial={visible}
-      animate={!mounted ? visible : shown ? visible : hidden}
-      transition={{ duration: 0.8, delay, ease: EASE }}
+      animate={!mounted || shown ? visible : hidden}
+      transition={shown ? { duration: 0.8, delay, ease: EASE } : { duration: 0 }}
     >
       {children}
     </motion.div>
@@ -79,7 +79,7 @@ export function ImageReveal({
       className={`overflow-hidden ${className ?? ""}`}
       initial={{ clipPath: open }}
       animate={{ clipPath: !mounted || shown ? open : closed }}
-      transition={{ duration: 1, delay, ease: EASE }}
+      transition={shown ? { duration: 1, delay, ease: EASE } : { duration: 0 }}
     >
       <motion.img
         src={src}
@@ -87,7 +87,7 @@ export function ImageReveal({
         loading="lazy"
         initial={{ scale: 1 }}
         animate={{ scale: !mounted || shown ? 1 : 1.14 }}
-        transition={{ duration: 1.4, delay, ease: EASE }}
+        transition={shown ? { duration: 1.4, delay, ease: EASE } : { duration: 0 }}
         className={`h-full w-full ${contain ? "object-contain" : "object-cover"} ${imgClassName ?? ""}`}
       />
     </motion.div>
@@ -124,11 +124,11 @@ export function TextReveal({
                 className="inline-block"
                 initial={visible}
                 animate={!mounted || shown ? visible : hidden}
-                transition={{
-                  duration: 0.95,
-                  delay: delay + i * 0.022,
-                  ease: EASE,
-                }}
+                transition={
+                  shown
+                    ? { duration: 0.95, delay: delay + i * 0.022, ease: EASE }
+                    : { duration: 0 }
+                }
               >
                 {char}
               </motion.span>
