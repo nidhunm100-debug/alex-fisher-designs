@@ -93,9 +93,10 @@ export function TextReveal({
   delay?: number;
 }) {
   const words = text.split(" ");
+  const [ref, shown] = useReveal("-60px");
   let charIndex = 0;
   return (
-    <span className={className}>
+    <span className={className} ref={ref as never}>
       {words.map((word, w) => (
         <span
           key={`${word}-${w}`}
@@ -108,8 +109,11 @@ export function TextReveal({
                 key={`${char}-${c}`}
                 className="inline-block"
                 initial={{ y: "115%", rotate: 4, opacity: 0 }}
-                whileInView={{ y: 0, rotate: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-60px" }}
+                animate={
+                  shown
+                    ? { y: 0, rotate: 0, opacity: 1 }
+                    : { y: "115%", rotate: 4, opacity: 0 }
+                }
                 transition={{
                   duration: 0.95,
                   delay: delay + i * 0.022,
