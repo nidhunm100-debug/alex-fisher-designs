@@ -85,11 +85,13 @@ function ExhibitionsPage() {
               <Reveal delay={i * 0.05}>
                 <div className="grid gap-5 py-8 md:gap-6 md:py-12 md:grid-cols-12">
                   <div className="md:col-span-3">
-                    <ImageReveal
-                      src={e.image}
-                      alt={e.title}
-                      className="aspect-[4/3]"
-                    />
+                    {e.image ? (
+                      <ImageReveal
+                        src={e.image}
+                        alt={e.title}
+                        className="aspect-[4/3]"
+                      />
+                    ) : null}
                   </div>
                   <div className="md:col-span-6 md:col-start-5">
                     <h3 className="display-md">{e.title}</h3>
