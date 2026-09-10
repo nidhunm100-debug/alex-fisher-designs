@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHeading } from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { press } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPress } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/press")({
   head: () => ({

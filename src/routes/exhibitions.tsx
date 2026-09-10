@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHeading } from "@/components/PageShell";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { exhibitions } from "@/data/site";
+import { useQuery } from "@tanstack/react-query";
+import { fetchExhibitions } from "@/lib/admin-data";
 
 export const Route = createFileRoute("/exhibitions")({
   head: () => ({
