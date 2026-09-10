@@ -2,18 +2,26 @@ import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * In-view detection with a safety fallback: if the observer never reports the
- * element (small viewports, smooth-scroll containers), reveal it anyway.
+ * In-view detection with two safety nets:
+ * 1. Content is rendered fully visible until the client has mounted, so the
+ *    server-rendered HTML is readable even if hydration or JS fails.
+ * 2. If the observer never reports the element (small viewports, smooth-scroll
+ *    containers), a timer reveals it anyway.
  */
 function useReveal(margin: string) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin } as never);
+  const [mounted, setMounted] = useState(false);
   const [fallback, setFallback] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const id = window.setTimeout(() => setFallback(true), 1200);
     return () => window.clearTimeout(id);
   }, []);
-  return [ref, inView || fallback] as const;
+
+  // Before mount: visible (no animation). After mount: animate on view.
+  return [ref, !mounted || inView || fallback, mounted] as const;
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -30,14 +38,16 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
-  const [ref, shown] = useReveal("-80px");
+  const [ref, shown, mounted] = useReveal("-80px");
+  const hidden = { opacity: 0, y };
+  const visible = { opacity: 1, y: 0 };
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y }}
-      animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
+      initial={visible}
+      animate={!mounted || shown ? visible : hidden}
+      transition={shown ? { duration: 0.8, delay, ease: EASE } : { duration: 0 }}
     >
       {children}
     </motion.div>
@@ -60,29 +70,31 @@ export function ImageReveal({
   contain?: boolean;
   delay?: number;
 }) {
-  const [ref, shown] = useReveal("-60px");
+  const [ref, shown, mounted] = useReveal("-60px");
+  const open = "inset(0 0 0% 0)";
+  const closed = "inset(0 0 100% 0)";
   return (
     <motion.div
       ref={ref}
       className={`overflow-hidden ${className ?? ""}`}
-      initial={{ clipPath: "inset(0 0 100% 0)" }}
-      animate={{ clipPath: shown ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
-      transition={{ duration: 1, delay, ease: EASE }}
+      initial={{ clipPath: open }}
+      animate={{ clipPath: !mounted || shown ? open : closed }}
+      transition={shown ? { duration: 1, delay, ease: EASE } : { duration: 0 }}
     >
       <motion.img
         src={src}
         alt={alt}
         loading="lazy"
-        initial={{ scale: 1.14 }}
-        animate={{ scale: shown ? 1 : 1.14 }}
-        transition={{ duration: 1.4, delay, ease: EASE }}
+        initial={{ scale: 1 }}
+        animate={{ scale: !mounted || shown ? 1 : 1.14 }}
+        transition={shown ? { duration: 1.4, delay, ease: EASE } : { duration: 0 }}
         className={`h-full w-full ${contain ? "object-contain" : "object-cover"} ${imgClassName ?? ""}`}
       />
     </motion.div>
   );
 }
 
-/** Character-by-character mask reveal for display headings. */
+/** Word-by-word mask reveal for display headings. */
 export function TextReveal({
   text,
   className,
@@ -93,8 +105,10 @@ export function TextReveal({
   delay?: number;
 }) {
   const words = text.split(" ");
-  const [ref, shown] = useReveal("-60px");
+  const [ref, shown, mounted] = useReveal("-60px");
   let charIndex = 0;
+  const visible = { y: 0, rotate: 0, opacity: 1 };
+  const hidden = { y: "115%", rotate: 4, opacity: 0 };
   return (
     <span className={className} ref={ref as never}>
       {words.map((word, w) => (
@@ -108,17 +122,13 @@ export function TextReveal({
               <motion.span
                 key={`${char}-${c}`}
                 className="inline-block"
-                initial={{ y: "115%", rotate: 4, opacity: 0 }}
-                animate={
+                initial={visible}
+                animate={!mounted || shown ? visible : hidden}
+                transition={
                   shown
-                    ? { y: 0, rotate: 0, opacity: 1 }
-                    : { y: "115%", rotate: 4, opacity: 0 }
+                    ? { duration: 0.95, delay: delay + i * 0.022, ease: EASE }
+                    : { duration: 0 }
                 }
-                transition={{
-                  duration: 0.95,
-                  delay: delay + i * 0.022,
-                  ease: EASE,
-                }}
               >
                 {char}
               </motion.span>
@@ -130,4 +140,3 @@ export function TextReveal({
     </span>
   );
 }
-
