@@ -56,9 +56,9 @@ function Home() {
           <div className="relative order-2 lg:order-1 lg:col-span-7 lg:pl-10">
             <Reveal>
               <p className="meta mb-8 text-archive-gold">The living archive · Bhubaneswar</p>
-              <h2 className="font-display text-[clamp(4.75rem,10vw,9rem)] leading-[0.78] text-archive-foreground">
+              <h2 className="font-display text-[clamp(2.75rem,12vw,9rem)] leading-[0.85] text-archive-foreground sm:leading-[0.78]">
                 Hello,
-                <span className="mt-3 block italic text-archive-muted">I’m Satyabhama.</span>
+                <span className="mt-2 block italic text-archive-muted sm:mt-3">I’m Satyabhama.</span>
               </h2>
             </Reveal>
 
