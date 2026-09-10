@@ -27,6 +27,22 @@ export const Route = createFileRoute("/press")({
 });
 
 function PressPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-press"],
+    queryFn: fetchPress,
+  });
+  const items = [
+    ...(managed ?? [])
+      .filter((p) => p.is_visible)
+      .map((p) => ({
+        title: p.title,
+        year: p.published_on ?? "",
+        publication: p.publication ?? "",
+        date: p.published_on ?? "",
+        description: p.excerpt ?? "",
+      })),
+    ...press,
+  ];
   return (
     <PageShell>
       <PageHeading
