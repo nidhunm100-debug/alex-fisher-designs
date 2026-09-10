@@ -81,7 +81,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="meta text-foreground"
+              className="meta -m-3 p-3 text-foreground"
               aria-label="Open menu"
             >
               Menu
@@ -113,7 +113,7 @@ export function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="meta text-foreground"
+                className="meta -m-3 p-3 text-foreground"
                 aria-label="Close menu"
               >
                 Close
@@ -130,7 +130,7 @@ export function SiteHeader() {
                 >
                   <Link
                     to={l.to}
-                    className="block display-md py-1 border-b border-border/60"
+                    className="block display-md py-2 border-b border-border/60"
                   >
                     {l.label}
                   </Link>

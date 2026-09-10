@@ -59,7 +59,7 @@ export function Lightbox({
             <button
               type="button"
               onClick={onClose}
-              className="meta text-background"
+              className="meta -m-2 p-2 text-background"
             >
               Close
             </button>
@@ -70,17 +70,17 @@ export function Lightbox({
               key={item.image}
               src={item.image}
               alt={item.title}
-              className="max-h-[70vh] max-w-full object-contain"
+              className="max-h-[62vh] max-w-full object-contain sm:max-h-[70vh]"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             />
           </div>
 
-          <div className="edge pb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div className="edge pb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-lg">
               {item.category && <p className="meta">{item.category}</p>}
-              <p className="font-display text-2xl text-background mt-1">
+              <p className="mt-1 font-display text-xl text-background sm:text-2xl">
                 {item.title}
               </p>
               {item.caption && (
@@ -90,7 +90,7 @@ export function Lightbox({
             <div className="flex gap-6">
               <button
                 type="button"
-                className="meta text-background"
+                className="meta -m-2 p-2 text-background"
                 onClick={() =>
                   onIndexChange((index! - 1 + items.length) % items.length)
                 }
@@ -99,7 +99,7 @@ export function Lightbox({
               </button>
               <button
                 type="button"
-                className="meta text-background"
+                className="meta -m-2 p-2 text-background"
                 onClick={() => onIndexChange((index! + 1) % items.length)}
               >
                 Next →

@@ -33,7 +33,7 @@ export function HeroSlider() {
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-stone-950/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/45 to-stone-950/25 md:via-stone-950/30 md:to-stone-950/10" />
 
       <div className="relative flex min-h-[88svh] md:min-h-screen flex-col justify-end edge pb-12 md:pb-20">
         <motion.h1
