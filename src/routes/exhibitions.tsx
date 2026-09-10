@@ -27,8 +27,24 @@ export const Route = createFileRoute("/exhibitions")({
 });
 
 function ExhibitionsPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-exhibitions"],
+    queryFn: fetchExhibitions,
+  });
+  const added = (managed ?? [])
+    .filter((e) => e.is_visible)
+    .map((e) => ({
+      slug: e.id,
+      title: e.title,
+      dates: e.year ?? "",
+      venue: e.venue ?? "",
+      location: e.city ?? "",
+      description: e.description ?? "",
+      image: "",
+      status: "Archive" as const,
+    }));
   const current = exhibitions.filter((e) => e.status === "Current");
-  const archive = exhibitions.filter((e) => e.status === "Archive");
+  const archive = [...added, ...exhibitions.filter((e) => e.status === "Archive")];
 
   return (
     <PageShell>
