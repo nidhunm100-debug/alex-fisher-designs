@@ -49,9 +49,16 @@ export function SiteHeader() {
           <Magnetic strength={0.25}>
             <Link
               to="/"
-              className="font-display text-lg md:text-xl tracking-tight leading-none"
+              className="flex items-center gap-2.5 font-display text-lg md:text-xl tracking-tight leading-none"
             >
-              Satyabhama <span className="italic">Majhi</span>
+              <img
+                src={artist.portrait}
+                alt="Satyabhama Majhi"
+                className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover ring-1 ring-border/70"
+              />
+              <span>
+                Satyabhama <span className="italic">Majhi</span>
+              </span>
             </Link>
           </Magnetic>
 
