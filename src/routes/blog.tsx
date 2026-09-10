@@ -53,13 +53,15 @@ function BlogPage() {
       />
 
       <section className="edge py-12 md:py-20">
-        {blogs.map((b, i) => (
+        {posts.map((b, i) => (
           <article key={b.slug} className="border-b border-border py-14 first:pt-4">
             <div className="grid gap-8 md:grid-cols-12 md:items-center">
               <div
                 className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2 md:col-start-8" : ""}`}
               >
-                <ImageReveal src={b.image} alt={b.title} className="aspect-[4/3]" />
+                {b.image ? (
+                  <ImageReveal src={b.image} alt={b.title} className="aspect-[4/3]" />
+                ) : null}
               </div>
               <Reveal
                 delay={0.08}
