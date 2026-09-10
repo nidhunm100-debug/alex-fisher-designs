@@ -37,7 +37,7 @@ export function ParallaxImage({
         alt={alt}
         loading="lazy"
         decoding="async"
-        style={active ? { y } : undefined}
+        style={active ? { y } : {}}
         className={`w-full object-cover ${active ? "h-[112%]" : "h-full"}`}
       />
     </div>
