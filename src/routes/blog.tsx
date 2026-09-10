@@ -27,6 +27,23 @@ export const Route = createFileRoute("/blog")({
 });
 
 function BlogPage() {
+  const { data: managed } = useQuery({
+    queryKey: ["public-posts", "blog"],
+    queryFn: () => fetchPosts("blog"),
+  });
+  const posts = [
+    ...(managed ?? [])
+      .filter((p) => p.is_published)
+      .map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        category: "Journal",
+        date: p.published_at ? new Date(p.published_at).toLocaleDateString() : "",
+        excerpt: p.excerpt ?? "",
+        image: p.cover_image_url ?? "",
+      })),
+    ...blogs,
+  ];
   return (
     <PageShell>
       <PageHeading

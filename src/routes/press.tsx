@@ -53,7 +53,7 @@ function PressPage() {
 
       <section className="edge py-12 md:py-20">
         <ul>
-          {press.map((p, i) => (
+          {items.map((p, i) => (
             <li key={p.title} className="border-t border-border last:border-b">
               <Reveal delay={i * 0.05}>
                 <div className="grid gap-4 py-12 md:grid-cols-12">
