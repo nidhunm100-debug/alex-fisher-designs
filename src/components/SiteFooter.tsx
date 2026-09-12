@@ -21,7 +21,7 @@ const quickNav = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 border-t border-archive-line bg-archive text-archive-foreground">
+    <footer className="mt-12 border-t border-archive-line bg-archive text-archive-foreground">
       <div className="edge py-20">
         <div className="grid gap-14 lg:grid-cols-12">
           {/* Brand */}
