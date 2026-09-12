@@ -318,7 +318,7 @@ function Home() {
       </section>
 
       {/* 11 — CONTACT */}
-      <section className="edge py-16 md:py-36">
+      <section className="edge pt-16 pb-10 md:pt-24 md:pb-16">
         <Reveal>
           <p className="meta">Collaborations & enquiries</p>
           <h2 className="display-lg mt-4 max-w-3xl">
